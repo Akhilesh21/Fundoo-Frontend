@@ -1,0 +1,136 @@
+import React from 'react';
+import { Card, Button, TextField, Snackbar, IconButton } from '@material-ui/core';
+import { withRouter } from 'react-router-dom'
+import '../App.css'
+class Register extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      snackbarOpen: false,
+      snackbarMsg: '',
+    }
+  }
+  //snackbar will be close at first
+  snackbarClose = (e) => {
+    this.setState({ snackbarOpen: false });
+  }
+//function to handle log in button
+  handleClick = () => {
+    this.props.history.push('/login');
+  }
+  //function to store values
+onChange=(e)=>{
+  this.setState({[e.target.name]:e.target.value})
+}
+//function to handle submit button
+handleSubmit = () => {
+  //validation for all the inputs
+  
+  if (this.state.firstName === null || this.state.firstName.length < 1) {
+    this.setState({ snackbarOpen: true, snackbarMsg: "firstname cannot be empty" })
+  } else if (this.state.lastName === null || this.state.lastName.length < 1) {
+    this.setState({ snackbarOpen: true, snackbarMsg: "lastname cannot be empty" })
+  }
+  else if (this.state.password === null || this.state.password.length < 8) {
+    this.setState({ snackbarOpen: true, snackbarMsg: "password should be min 8" })
+  }
+  else if (this.state.email === null || this.state.email.length < 1) {
+    this.setState({ snackbarOpen: true, snackbarMsg: "email cannot be empty" })
+  }
+  //if the validation is correct we will proceed the details to controller
+}
+  //to display
+  render() {
+    return (
+      <div className="rcard">
+         <Snackbar
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+              }}
+              open={this.state.snackbarOpen}
+              autoHideDuration={6000}
+              onClose={this.snackbarClose}
+              message={<span id="messege-id"> {this.state.snackbarMsg}</span>}
+              action={[
+                <IconButton
+                  key="close"
+                  arial-label="close"
+                  color='inherit'
+                  onClick={this.snackbarClose}
+                >
+                </IconButton>
+              ]}
+            />
+          <Card >
+              <form >
+            <div className="rname">
+              <p className="registrationName">REGISTRATION</p>
+            </div>
+            <div className="rtxtfield">
+              <TextField
+                id="firstName"
+                fullWidth
+                label="FirstName"
+                type="text"
+                margin="normal"
+                variant="outlined"
+                name="firstName"
+                value={this.state.firstName}
+                onChange={this.onChange}
+              />
+              <TextField
+                id="lastName"
+                fullWidth
+                label="lastName"
+                type="text"
+                name="lastName"
+                margin="normal"
+                variant="outlined"
+                value={this.state.lastName}
+                onChange={this.onChange}
+              />
+              <TextField
+                id="email"
+                fullWidth
+                label="Email"
+                type="email"
+                name="email"
+                autoComplete="off"
+                margin="normal"
+                variant="outlined"
+                value={this.state.email}
+                onChange={this.onChange}
+              />
+
+              <TextField
+                id="password"
+                fullWidth
+                label="Password"
+                type="password"
+                name="password"
+                margin="normal"
+                variant="outlined"
+                value={this.state.password}
+                onChange={this.onChange}
+              />
+              </div>
+            <div className="rsbutton">
+              <Button onClick={this.handleSubmit} variant="contained" color="primary">
+                submit
+            </Button>
+            </div>
+            <div className="rlbutton">
+              <a href='/login'>Already have an account?  Login</a>
+            </div>
+            </form>
+          </Card>
+      </div>
+    )
+  }
+}
+export default withRouter(Register)

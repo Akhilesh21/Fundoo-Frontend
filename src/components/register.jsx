@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import {withRouter} from 'react-router-dom'
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import { Container } from "@material-ui/core";
+import { Container, Card } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
-import "./User.css";
+import './User.css'
+import controller from "../Controller/UserController";
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,12 +19,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
 class Registration extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      Username: "",
+    
       Firstname: "",
       Lastname: "",
       Email: "",
@@ -31,6 +35,7 @@ class Registration extends Component {
       message: ""
     };
   }
+  
 
   loginPage = () => {
     this.props.history.push('/login')
@@ -38,10 +43,7 @@ class Registration extends Component {
 
 
 
-  onchangeUsername = event => {
-    this.setState({ Username: event.target.value });
-  };
-
+  
   onchangeEmail = async event => {
     let emailData = event.target.value
     await this.setState({ Email: emailData });
@@ -56,9 +58,7 @@ class Registration extends Component {
 
 
     }
-    // let emailchng = await emailData.test("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}");
-    // console.log("email validation", emailchng);
-
+    
   };
 
   onchangeFirstname = event => {
@@ -79,42 +79,57 @@ class Registration extends Component {
     this.setState({ Passwordagain: event.target.value });
   };
 
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   onSubmit = () => {
+    if(this.state.Firstname===""){
+      console.log("firstname is empty")
+    }else if(this.state.Lastname===""){
+      console.log("lastname is empty")
+       }else if(this.state.Email===""){
+         console.log("email is empty")
+       }else if(this.state.Password===""){
+         console.log("password is empty")
+       }
+
+else{
     var registrationDetails = {
 
-      username: this.state.Username,
-      firstname: this.state.Firstname,
-      lastname: this.state.Lastname,
+//      username: this.state.Username,
+      fname: this.state.Firstname,
+      lname: this.state.Lastname,
       email: this.state.Email,
       password: this.state.Password,
-      passwordagain: this.state.Passwordagain
 
     }
     console.log(registrationDetails)
-    // Controller.register(registrationDetails).then((res) => {
-    //   console.log("hiii...", res)
-    //   if (res.status === 200) {
-    //     alert("Verification link is sent")
-    //     this.props.history.push("/login")
-    //     console.log(res)
-    //     let token = res.data.object
-    //     console.log(token)
-    //     localStorage.setItem("registerToken", token)
-    //     this.setState({
-    //       error: true,
-    //       message: 'Registration success'
-    //     })
-    //   }
+    controller.register(registrationDetails).then(response => {
+      if(response.status === 201){
+      console.log("RESPONSE :",response);
+      }else{
+      console.log("fgtgybhbyunyuhnjun ujuju");
+    }
+  }
+    )
+    .catch(
 
+    )
 
-
-      // else {
-      //   this.setState({
-      //     error: true,
-      //     message: 'Please Reregister'
-      //   })
-      // }
-    // })
+  }
+   
   }
 
 
@@ -123,24 +138,19 @@ class Registration extends Component {
     const classes = { useStyles };
 
     return (
+      // <Card className="card" style={{ width: "80%" , color :"red" , height:"200%"}} >
+  
+      
+<Card>
       <div className="mainReg" >
-        <Container maxWidth="50px" fixed>
-          <form className="Register" style={{ width: "50%" }} >
-            <h3 className="fundoohead">fundoonotes</h3>
-            <div className="row" style={{ width: "300%" }}>
-              <div className="col s6 Reg-Username" >
+        <Container maxWidth="5px" fixed >
+          <form className="Register" style={{ width: "60%" }} >
+             
+            <h2 className="fundoohead">fundoonotes</h2>
 
-                <TextField
-                  required={true}
-                  error={this.state.error}
-                  id="Username"
-                  label="Username"
-                  variant="outlined"
-                  value={this.state.Username}
-                  onChange={this.onchangeUsername}
-                  className={classes.paper}
-                />
-              </div>
+            <div className="row" style={{ width: "300%"}}>
+             
+
               <div className="col s6 Reg-Firstname">
                 <TextField
                   required={true}
@@ -180,7 +190,7 @@ class Registration extends Component {
                 />
               </div>
             </div>
-            <div className="row" style={{ width: "300%" }}>
+            <div className="row" style={{ width: "70%",height:"-20px"}}>
 
               <div className="col s6 Reg-Password">
                 <TextField
@@ -217,31 +227,33 @@ class Registration extends Component {
                   size="medium"
                   color="primary"
                   className={classes.paper}
-                  style={{ color: "blue" }}
+                  style={{ color: "blue" , width: "20%" }}
                   onClick={this.onSubmit}
                 >
                   Submit
                 </Button>
               </div>
-              <div className="col s6 Reg-button">
+                <div className="col s6 Reg-button">
                 <Button
                   variant="outlined"
                   size="medium"
                   color="primary"
                   className={classes.paper}
-                  style={{ color: "blue" }}
-                  onClick={this.loginPage}
-                >
+                  style={{ color: "blue" , width: "20%"}}
+                  onClick={this.loginPage} >
                   signin
-
-                </Button>
-              </div>
-            </div>
+                  </Button>
+              </div>  
+            </div>  
           </form>
+          
         </Container>
+        
       </div>
+       </Card>
+    
     );
   }
 }
 
-export default Registration;
+export default withRouter(Registration);

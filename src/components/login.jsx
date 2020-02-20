@@ -3,9 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 // import Grid from "@material-ui/core/Grid";
 import { Container } from "@material-ui/core";
-import Controller from '../Controller/UserController';
 import TextField from "@material-ui/core/TextField";
-import "./User.css";
 
 
 const useStyles = makeStyles(theme => ({
@@ -76,26 +74,7 @@ class Login extends Component {
 
         }
         console.log(loginDetails)
-        Controller.login(loginDetails).then((res) => {
-            console.log("hiii...", res)
-            if (res.status === 200) {
-                console.log("login....")
-                this.props.history.push("/dashboard")
-                console.log(res)
-                let token = res.data.object
-                localStorage.setItem("logintoken", token)
-                this.setState({
-                    error: true,
-                    message: 'Login success'
-                })
-            }
-            // else {
-            //   this.setState({
-            //     error: true,
-            //     message: 'Please Reregister'
-            //   })
-            // }
-        })
+       
     }
 
 
@@ -141,11 +120,11 @@ class Login extends Component {
                                 />
                             </div>
                         </div>
-                        <div className="row" style={{ width: "300%" }}>
+                        {/* <div className="row" style={{ width: "300%" }}>
                             <div className="col s6 Reg-Password">
                                 <a href="/forgot">forgot password?</a>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="row" style={{ width: "300%" }}>
 

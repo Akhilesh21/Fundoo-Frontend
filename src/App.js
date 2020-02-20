@@ -1,25 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import  {BrowserRouter  as Router,Route} from "react-router-dom"
-import Home from './components/Home'
-import Listing from './components/Listing'
-import About from './components/About'
-import Auth from './components/Auth'
-import Register from './components/test'
+import  {BrowserRouter  as Router,Switch,Route} from "react-router-dom"
+import Registration from './components/register'
+import Login from './components/login'
+
+import "./App.css";
+
 
 class App  extends React.Component{
   render()
   {
     return (
       <Router>
-        <Route path="/" exact={true} Component={Register}/>
-        <Route path="/Home" Component={Home}/>
-        <Route path="/register"  Component={Register}/>
-
-          </Router>
+         {/* <Route path="/test" component={Register}/> 
+         <Route path="/register"  component={Register}/>  */}
+        {/* <Route path="/" exact  component={Registration}/> */}
+        <p>
+          hello world!
+          </p>
+        
+        <Route path="/register" component={Registration}/>
+        <Route path="/login" component={Login}/>
+        
+        </Router>
     )
   }
 }
-
 export default App;

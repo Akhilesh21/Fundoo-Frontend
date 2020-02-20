@@ -1,136 +1,147 @@
-import React from 'react';
-import { Card, Button, TextField, Snackbar, IconButton } from '@material-ui/core';
-import { withRouter } from 'react-router-dom'
-import '../App.css'
-class Register extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      snackbarOpen: false,
-      snackbarMsg: '',
-    }
-  }
-  //snackbar will be close at first
-  snackbarClose = (e) => {
-    this.setState({ snackbarOpen: false });
-  }
-//function to handle log in button
-  handleClick = () => {
-    this.props.history.push('/login');
-  }
-  //function to store values
-onChange=(e)=>{
-  this.setState({[e.target.name]:e.target.value})
-}
-//function to handle submit button
-handleSubmit = () => {
-  //validation for all the inputs
-  
-  if (this.state.firstName === null || this.state.firstName.length < 1) {
-    this.setState({ snackbarOpen: true, snackbarMsg: "firstname cannot be empty" })
-  } else if (this.state.lastName === null || this.state.lastName.length < 1) {
-    this.setState({ snackbarOpen: true, snackbarMsg: "lastname cannot be empty" })
-  }
-  else if (this.state.password === null || this.state.password.length < 8) {
-    this.setState({ snackbarOpen: true, snackbarMsg: "password should be min 8" })
-  }
-  else if (this.state.email === null || this.state.email.length < 1) {
-    this.setState({ snackbarOpen: true, snackbarMsg: "email cannot be empty" })
-  }
-  //if the validation is correct we will proceed the details to controller
-}
-  //to display
-  render() {
-    return (
-      <div className="rcard">
-         <Snackbar
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'center',
-              }}
-              open={this.state.snackbarOpen}
-              autoHideDuration={6000}
-              onClose={this.snackbarClose}
-              message={<span id="messege-id"> {this.state.snackbarMsg}</span>}
-              action={[
-                <IconButton
-                  key="close"
-                  arial-label="close"
-                  color='inherit'
-                  onClick={this.snackbarClose}
-                >
-                </IconButton>
-              ]}
-            />
-          <Card >
-              <form >
-            <div className="rname">
-              <p className="registrationName">REGISTRATION</p>
-            </div>
-            <div className="rtxtfield">
-              <TextField
-                id="firstName"
-                fullWidth
-                label="FirstName"
-                type="text"
-                margin="normal"
-                variant="outlined"
-                name="firstName"
-                value={this.state.firstName}
-                onChange={this.onChange}
-              />
-              <TextField
-                id="lastName"
-                fullWidth
-                label="lastName"
-                type="text"
-                name="lastName"
-                margin="normal"
-                variant="outlined"
-                value={this.state.lastName}
-                onChange={this.onChange}
-              />
-              <TextField
-                id="email"
-                fullWidth
-                label="Email"
-                type="email"
-                name="email"
-                autoComplete="off"
-                margin="normal"
-                variant="outlined"
-                value={this.state.email}
-                onChange={this.onChange}
-              />
+import React, { Component } from 'react';
+import Input from './Input';
+import { Button, Card, Typography } from '@material-ui/core';
+// import  from '@material-ui/core';
+// import "../../css/main.css";
+import userService from '../Controller/UserServices';
 
-              <TextField
-                id="password"
-                fullWidth
-                label="Password"
-                type="password"
-                name="password"
-                margin="normal"
-                variant="outlined"
-                value={this.state.password}
-                onChange={this.onChange}
-              />
-              </div>
-            <div className="rsbutton">
-              <Button onClick={this.handleSubmit} variant="contained" color="primary">
-                submit
-            </Button>
+var services = new userService();
+
+export default class Register extends Component {
+
+    constructor(props) {
+
+        super(props);
+        this.state = {
+
+            username: '',
+            email: '',
+            password: '',
+            rpassword: '',
+            errors: {}
+
+        }
+        this.getInputData = this.getInputData.bind(this);
+        this.onClickbtn = this.onClickbtn.bind(this);
+        this.dataValidation = this.dataValidation.bind(this);
+
+    }
+
+    getInputData(data,event) {
+
+        this.setState({
+            [event.target.name]: data
+        });
+
+    }
+
+
+    dataValidation() {
+        let fields = this.state;
+        let errors = {};
+        let formIsValid = true;
+
+        if (!fields["username"]) {
+            formIsValid = false;
+            errors["username"] = "Cannot be empty";
+        } else {
+            if (fields["username"].length < 5) {
+                formIsValid = false;
+                errors["username"] = "minimum 5 character";
+            }
+        }
+
+        if (!fields["email"]) {
+            formIsValid = false;
+            errors["email"] = "Cannot be empty";
+        }
+
+        if (!fields["password"]) {
+            formIsValid = false;
+            errors["password"] = "Cannot be empty";
+        }
+
+        if (!fields["rpassword"]) {
+            formIsValid = false;
+            errors["rpassword"] = "Cannot be empty";
+        } else {
+            if (fields["password"] !== fields["rpassword"]) {
+                formIsValid = false;
+                errors["rpassword"] = "not match";
+            }
+        }
+
+        this.setState({ errors: errors });
+        return formIsValid;
+
+    }
+
+
+    onClickbtn(e) {
+        e.preventDefault();
+
+        if (this.dataValidation()) {
+            const userData = {
+                username: this.state.username,
+                email: this.state.email,
+                password: this.state.password,
+                rpassword: this.state.rpassword,
+            }
+            services.registerUser(userData)
+                .then(res => {
+
+                    if (res.status === 210) {
+                        this.setState({
+                            errors: {
+                                email: res.data.error.email[0],
+                            }
+                        });
+                    }
+                    if (res.status === 200) {  
+                            alert('register successfully Check your email');     
+                            this.props.history.push("/login");
+                    }
+
+                }).catch();
+        } else {
+            return;
+        }
+
+    }
+
+
+    render() {
+        // console.log(this.state);
+
+        return (
+
+            <div className='maindiv'>
+                <Card id='card'>
+                    <Typography id='registerT' color='primary'>Register</Typography>
+                    <div className='hold'>
+                        <div className='input'>
+                            <Input name={'username'} type={'text'} placeholder={'username'} label={'username'} onChange={this.getInputData} />
+                            <div className='msg' >{this.state.errors["username"]}</div>
+                        </div>
+                        <div className='input'>
+                            <Input name={'email'} type={'text'} placeholder={'enter email'} label={'email'} onChange={this.getInputData} />
+                            <div className='msg' >{this.state.errors["email"]}</div>
+                        </div>
+                        <div className='input'>
+                            <Input name={'password'} type={'password'} placeholder={'enter password'} label={'password'} onChange={this.getInputData} />
+                            <div className='msg' >{this.state.errors["password"]}</div>
+                        </div>
+                        <div className='input'>
+                            <Input name={'rpassword'} type={'password'} placeholder={'confirm password'} label={'confirm password'} onChange={this.getInputData} />
+                            <div className='msg' >{this.state.errors["rpassword"]}</div>
+                        </div>
+                        <div className='button'>
+                            <Button variant="contained" color='primary' onClick={this.onClickbtn}>Submit</Button>
+                        </div>
+                    </div>
+                </Card>
             </div>
-            <div className="rlbutton">
-              <a href='/login'>Already have an account?  Login</a>
-            </div>
-            </form>
-          </Card>
-      </div>
-    )
-  }
+
+        );
+    }
 }
-export default withRouter(Register)

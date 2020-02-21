@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import { Container, Card } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import './User.css'
-import controller from "../Controller/UserController";
+  import {register} from "../Controller/UserController";
 
 
 const useStyles = makeStyles(theme => ({
@@ -103,21 +103,36 @@ class Registration extends Component {
          console.log("email is empty")
        }else if(this.state.Password===""){
          console.log("password is empty")
+       }else if(this.state.confirmPassword===""){
+         console.log("requires same password")
        }
 
 else{
-    var registrationDetails = {
 
+  let formaData=new FormData()
+formaData.append('fname', this.state.Firstname)
+formaData.append('lname', this.state.Lastname)
+
+formaData.append('email', this.state.Email)
+formaData.append('password', this.state.Password)
+formaData.append('c_password', this.state.Passwordagain)
+
+
+
+  var registrationDetails = {
+// console.log("")
 //      username: this.state.Username,
+
       fname: this.state.Firstname,
       lname: this.state.Lastname,
       email: this.state.Email,
       password: this.state.Password,
+      c_password: this.state.Passwordagain
 
     }
     console.log(registrationDetails)
-    controller.register(registrationDetails).then(response => {
-      if(response.status === 201){
+    register(formaData).then(response => {
+      if(response.status === 200){
       console.log("RESPONSE :",response);
       }else{
       console.log("fgtgybhbyunyuhnjun ujuju");

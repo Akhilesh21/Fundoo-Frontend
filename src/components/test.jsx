@@ -27,7 +27,7 @@ export default class Register extends Component {
 
     }
 
-    getInputData(data,event) {
+    getInputData(data, event) {
 
         this.setState({
             [event.target.name]: data
@@ -97,9 +97,9 @@ export default class Register extends Component {
                             }
                         });
                     }
-                    if (res.status === 200) {  
-                            alert('register successfully Check your email');     
-                            this.props.history.push("/login");
+                    if (res.status === 200) {
+                        alert('register successfully Check your email');
+                        this.props.history.push("/login");
                     }
 
                 }).catch();

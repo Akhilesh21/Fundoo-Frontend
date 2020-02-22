@@ -53,10 +53,7 @@ class Login extends Component {
 
 
         }
-        // let emailchng = await emailData.test("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}");
-        // console.log("email validation", emailchng);
-
-    };
+           };
 
 
 
@@ -120,11 +117,7 @@ class Login extends Component {
                                 />
                             </div>
                         </div>
-                        {/* <div className="row" style={{ width: "300%" }}>
-                            <div className="col s6 Reg-Password">
-                                <a href="/forgot">forgot password?</a>
-                            </div>
-                        </div> */}
+                        
 
                         <div className="row" style={{ width: "300%" }}>
 

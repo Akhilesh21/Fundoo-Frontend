@@ -24,12 +24,18 @@ let headers = {
         console.log("to check for response",response.id)
         return response
     
+
     // login(loginDetails) {
     //     console.log("controller login method ", loginDetails)
     //     return axios.post('/http://127.0.0.1:8000/api/register', loginDetails)
     // }
     // ,
-
-}
+  }
 
 // export default controller
+export async function login(data){
+  let response = axios.post('http://127.0.0.1:8000/api/login', data);
+  console.log("to check for response",response.id)
+  return response
+
+}

@@ -32,33 +32,105 @@ class Registration extends Component {
       Password: "",
       Passwordagain: "",
       error: false,
+      err1:false,
       message: ""
     };
   }
 
+  
 
   loginPage = () => {
     this.props.history.push('/login')
+    
   }
 
 
+  helpermailMethod=() => {
+    if(this.state.err1)
+    {
+     return "Not a valid mail id"   
+    }
+   }
+  
+  /*/*/
+   
 
+  
+   
+    // getInputdata(data , event) {
+    //   this.setState({
+    //     [event.target.name]:data
+    //   });
+    // }
+
+//     dataValidation() {
+//       let fields = this.state;
+//       let errors = {};
+//       let formisValid = true ;
+//       if (!fields["fname"]) {
+//         formIsValid = false;
+//         errors["fname"] = "Cannot be empty";
+//     } else {
+//         if (fields["fname"].length < 5) {
+//             formIsValid = false;
+//             errors["fname"] = "minimum 5 character";
+//         }
+//     }
+//     if (!fields["lname"]){
+//       formisValid = false;
+//       errors
+//     }
+//     if(!fields["email"]){
+//       formisValid = false;
+//       errors["email"] ="Cannot be empty";
+//     }
+//     if(!fields["password"]){
+//       formisValid = false;
+//       errors["password"] ="Cannot be empty";
+//     }else {
+//      if (fields["password"] !== fields["c_password"]) {
+//        formIsValid = false;
+//        errors["c_password"] = "not match";
+//    }
+// }
+
+// this.setState({ errors: errors });
+// return formIsValid;
+
+//     }
+
+
+//  validate = () => {
+//    let nameError= "";
+//    let emailError= "";
+//    let passwordError= "";
+
+//    if(!this.state.email.includes('@')){
+//      emailError = 'invalid email';
+//    }
+//    if (emailError){
+//      this.setState({emailError});
+//      return false;
+
+//    }
+//    return true;
+//  };
+
+     
+
+
+/*/*/
 
   onchangeEmail = async event => {
-    let emailData = event.target.value
-    await this.setState({ Email: emailData });
-    console.log("email validation state", this.state.Email);
+    await this.setState({ Email: event.target.value });
 
-    if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.Email)) {
-      console.log("email");
+    if (/^[a-zA-z\d._-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,4}$/.test(this.state.Email)) {
+      this.setState({ err1: false});
 
     }
     else {
-      console.log("not email");
-
-
+      this.setState({ err1: true });
     }
-
   };
 
   onchangeFirstname = event => {
@@ -126,7 +198,7 @@ class Registration extends Component {
         )
 
     }
-    // this.props.history.push('/login')
+    
   }
 
 
@@ -135,8 +207,7 @@ class Registration extends Component {
     const classes = { useStyles };
 
     return (
-      // <Card className="card" style={{ width: "80%" , color :"red" , height:"200%"}} >
-
+     
 
 
       
@@ -147,9 +218,9 @@ class Registration extends Component {
           <div maxWidth="5px" fixed >
             <form className="Register" >
 
-              <h2 className="fundoohead">fundoonotes</h2>
+              <h1 className="fundoohead">FUNDOONOTES</h1>
 
-              <div style={{ width: "300%" }}>
+              <div style={{ width: "100%" }}>
 
 
                 <div className="col s6 Reg-Firstname">
@@ -182,12 +253,15 @@ class Registration extends Component {
                 <div >
                   <TextField
                     required={true}
-                    error={this.state.error}
+                    error={this.state.err1}
                     id="Email"
                     label="Email"
                     variant="outlined"
                     value={this.state.Email}
                     onChange={this.onchangeEmail}
+                    helperText={this.helpermailMethod}
+
+
                   />
                 </div>
               

@@ -19,9 +19,9 @@ class App  extends React.Component{
           hello world!
           </p>
          */}
-        <Route path="/" exact component={Registration}/>
-        <Route path="/login" component={Login}/>
-        
+        {/* <Route path="/" exact component={Registration}/> */}
+        <Route path="/login"  exact component={Login}/>
+        <Route path="/register" component={Registration}/>
         </Router>
     )
   }

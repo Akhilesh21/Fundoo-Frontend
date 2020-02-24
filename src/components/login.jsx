@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 // import Grid from "@material-ui/core/Grid";
 import { Container } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
+import { login } from '../Controller/UserController';
 
 
 const useStyles = makeStyles(theme => ({
@@ -61,6 +62,63 @@ class Login extends Component {
         this.setState({ Password: event.target.value });
     };
 
+        
+
+
+    // onSubmit = () => {
+    //     this.props.history.push('')
+    //     if (this.state.Email === "") {
+    //       console.log("email is empty")
+    //     } else if (this.state.Password === "") {
+    //       console.log("password is empty")
+    //     }
+    
+    //     else {
+    
+    //       let formaData = new FormData()
+    //       formaData.append('email', this.state.Email)
+    //       formaData.append('password', this.state.Password)
+          
+    //     }
+    // }
+
+    // var loginDetails = {
+    //       email: this.state.Email,
+    //       password: this.state.Password        
+    // }
+    // console.log(loginDetails)
+    // login(formaData).then(response => {
+    //     if(response.status === 200 )
+    // })
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     onSubmit = () => {
@@ -86,7 +144,7 @@ class Login extends Component {
                         <h3 className="fundoohead">fundoonotes</h3>
 
 
-                        <div className="row" style={{ width: "300%" }}>
+                        <div className="row">
 
                             <div className="col s6 Reg-Email">
                                 <TextField
@@ -102,7 +160,7 @@ class Login extends Component {
                         </div>
 
 
-                        <div className="row" style={{ width: "300%" }}>
+                        <div className="row" >
                             <div className="col s6 Reg-Password">
                                 <TextField
                                     required={true}
@@ -119,7 +177,7 @@ class Login extends Component {
                         </div>
                         
 
-                        <div className="row" style={{ width: "300%" }}>
+                        <div className="row" >
 
                             <div className="col s6 Reg-button">
                                 <Button
@@ -135,8 +193,11 @@ class Login extends Component {
                             </div>
                         </div>
 
-                        <div className="row" style={{ width: "300%" }}>
+                        <div className="row" >
                             <div className="col s6 Reg-button">
+
+
+                                
                                 <Button
                                     variant="outlined"
                                     size="medium"

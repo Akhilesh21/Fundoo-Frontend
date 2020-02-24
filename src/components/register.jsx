@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from 'react-router-dom'
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import { Container, Card } from "@material-ui/core";
+import { Container, Card,Snackbar } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import './User.css'
 import { register } from "../Controller/UserController";
@@ -30,9 +30,12 @@ class Registration extends Component {
       Lastname: "",
       Email: "",
       Password: "",
+      SnackbarOpen:false,
+      SnackbarMsg:"",
       Passwordagain: "",
       error: false,
       err1:false,
+      err2:false,
       message: ""
     };
   }
@@ -52,8 +55,14 @@ class Registration extends Component {
     }
    }
   
-  /*/*/
-   
+
+   helperfnamemethod=() => {
+     if(this.state.err2)
+     {
+       return "Not a valid name"
+     }
+   }
+     
 
   
    
@@ -120,6 +129,66 @@ class Registration extends Component {
 
 
 /*/*/
+  
+
+SnackbarClose = (e) => {
+  this.setState({ snackbarOpen: false})
+}
+onChange = (e) => {
+  this.setState({ [e.target.name]: e.target.value})
+  console.log(this.setState({ [e.target.name]:  e.target.value }))
+}
+handlechangeFirstname = (event) => {
+  if (event.target.value.match("^[a-zA-z]*$")  != null){
+    this.setState({ fname: event.target.value });
+  }
+  else{
+    this.setState({ snackbarOpen: true, SnackbarMessage: "first name should contain characters"})
+  }
+}
+
+
+handlechangeLastname = (event) => {
+  if (event.target.value.match("^[a-zA-z]*$")  != null){
+    this.setState({ lname: event.target.value });
+  }
+  else{
+    this.setState({ snackbarOpen: true, SnackbarMessage: "last name should contain characters"})
+  }
+}
+
+
+handlechangeEmail = (event) => {
+  
+    this.setState({ email: event.target.value });
+    if (!/[a-z0-9._%+-]+@[a-z][0-9,-]+.[a-z]{2,3}$/.test(this.state.email)){
+      return true;
+
+  }
+}
+
+
+// handlechangePassword = (event) => {
+  
+//   this.setState({ password: event.target.value });
+//   if ((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}.test(this.state.password)){
+//     return true;
+
+// }
+// }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
 
   onchangeEmail = async event => {
     await this.setState({ Email: event.target.value });
@@ -134,11 +203,27 @@ class Registration extends Component {
   };
 
   onchangeFirstname = event => {
-    this.setState({ Firstname: event.target.value });
+   
+    if(/^(?=.*[a-zA-Z])([a-zA-Z]+)$/){
+      // this.setState({ err2: false});
+      this.setState({ Firstname: event.target.value });
+    }
+    else{
+      // this.setState({ });
+    this.setState({ snackbarOpen: true, SnackbarMessage: "last name should contain characters"})
+
+    }
    };
 
-  onchangeLastname = event => {
+  
+   onchangeLastname = event => {
     this.setState({ Lastname: event.target.value });
+    if(/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z]+)$/){
+      this.setState({ err2: false});
+    }
+    else{
+      this.setState({ err2: true});
+    }
   };
 
   onchangePassword = event => {
@@ -189,7 +274,7 @@ class Registration extends Component {
         if (response.status === 200) {
           console.log("RESPONSE :", response);
         } else {
-          console.log("fgtgybhbyunyuhnjun ujuju");
+          console.log("fgtgybhbyunyuhnjunujuju");
         }
       }
       )
@@ -220,19 +305,36 @@ class Registration extends Component {
 
               <h1 className="fundoohead">FUNDOONOTES</h1>
 
+              
+              
+              <Snackbar
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'center',
+                }}
+                open={this.state.SnackbarOpen}
+                autoHideDuration={6000}
+                onClose={this.SnackbarOpen}
+              message={<span id="message-id"> {this.state.SnackbarMessage} </span>}>
+             </Snackbar>
+              
+              
+              
               <div style={{ width: "100%" }}>
 
+               
 
                 <div className="col s6 Reg-Firstname">
                   <TextField
                     required={true}
-                    error={this.state.error}
+                    error={this.state.err1}
                     id="Firstname"
                     label="Firstname"
                     variant="outlined"
                     value={this.state.Firstname}
                     onChange={this.onchangeFirstname}
                     className={classes.paper}
+                    helperText={this.helpermailMethod}
                   />
                 </div>
               </div>
@@ -241,12 +343,13 @@ class Registration extends Component {
                 <div >
                   <TextField
                     required={true}
-                    error={this.state.error}
+                    error={this.state.err1}
                     id="Lastname"
                     label="Lastname"
                     variant="outlined"
                     value={this.state.Lastname}
                     onChange={this.onchangeLastname}
+                    helperText={this.helpermailMethod}
                     className={classes.paper}
                   />
                 </div>

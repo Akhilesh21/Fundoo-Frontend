@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 // import Grid from "@material-ui/core/Grid";
-import { Container } from "@material-ui/core";
+// import { Container } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import { login } from '../Controller/UserController';
+import { Container, Card, Snackbar } from "@material-ui/core";
 
 
 const useStyles = makeStyles(theme => ({
@@ -140,8 +141,8 @@ class Login extends Component {
         return (
             <div className="mainLogin" >
                 <Container maxWidth="sm">
-                    <form className="Login" style={{ width: "50%" }} >
-                        <h3 className="fundoohead">fundoonotes</h3>
+                    <form className="Login" style={{ width: "70%" }} >
+                        <h1 className="fundoohead">Fundoonotes</h1>
 
 
                         <div className="row">

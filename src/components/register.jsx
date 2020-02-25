@@ -62,127 +62,6 @@ class Registration extends Component {
     }
   }
 
-
-
-
-  // getInputdata(data , event) {
-  //   this.setState({
-  //     [event.target.name]:data
-  //   });
-  // }
-
-  //     dataValidation() {
-  //       let fields = this.state;
-  //       let errors = {};
-  //       let formisValid = true ;
-  //       if (!fields["fname"]) {
-  //         formIsValid = false;
-  //         errors["fname"] = "Cannot be empty";
-  //     } else {
-  //         if (fields["fname"].length < 5) {
-  //             formIsValid = false;
-  //             errors["fname"] = "minimum 5 character";
-  //         }
-  //     }
-  //     if (!fields["lname"]){
-  //       formisValid = false;
-  //       errors
-  //     }
-  //     if(!fields["email"]){
-  //       formisValid = false;
-  //       errors["email"] ="Cannot be empty";
-  //     }
-  //     if(!fields["password"]){
-  //       formisValid = false;
-  //       errors["password"] ="Cannot be empty";
-  //     }else {
-  //      if (fields["password"] !== fields["c_password"]) {
-  //        formIsValid = false;
-  //        errors["c_password"] = "not match";
-  //    }
-  // }
-
-  // this.setState({ errors: errors });
-  // return formIsValid;
-
-  //     }
-
-
-  //  validate = () => {
-  //    let nameError= "";
-  //    let emailError= "";
-  //    let passwordError= "";
-
-  //    if(!this.state.email.includes('@')){
-  //      emailError = 'invalid email';
-  //    }
-  //    if (emailError){
-  //      this.setState({emailError});
-  //      return false;
-
-  //    }
-  //    return true;
-  //  };
-
-
-
-
-  /*/*/
-
-
-  // SnackbarClose = (e) => {
-  //   this.setState({ snackbarOpen: false})
-  // }
-  // onChange = (e) => {
-  //   this.setState({ [e.target.name]: e.target.value})
-  //   console.log(this.setState({ [e.target.name]:  e.target.value }))
-  // }
-  // handlechangeFirstname = (event) => {
-  //   if (event.target.value.match("^[a-zA-z]*$")  != null){
-  //     this.setState({ fname: event.target.value });
-  //   }
-  //   else{
-  //     this.setState({ snackbarOpen: true, SnackbarMsg: "first name should contain characters"})
-  //   }
-  // }
-
-
-  // handlechangeLastname = (event) => {
-  //   if (event.target.value.match("^[a-zA-z]*$")  != null){
-  //     this.setState({ lname: event.target.value });
-  //   }
-  //   else{
-  //     this.setState({ snackbarOpen: true, SnackbarMessage: "last name should contain characters"})
-  //   }
-  // }
-
-
-  // handlechangeEmail = (event) => {
-
-  //     this.setState({ email: event.target.value   });
-  //     if (!/[a-z0-9._%+-]+@[a-z][0-9,-]+.[a-z]{2,3}$/.test(this.state.email)){
-  //       return true;
-
-  //   }
-  // }
-
-
-  // handlechangePassword = (event) => {
-
-  //   this.setState({ password: event.target.value });
-  //   if ((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}.test(this.state.password)){
-  //     return true;
-
-  // }
-  // }
-
-
-
-
-
-
-
-
   SnackbarClose = (e) => {
      this.setState({ snackbarOpen: false})
      }
@@ -190,25 +69,6 @@ class Registration extends Component {
       this.setState({ [e.target.name]: e.target.value})
        console.log(this.setState({ [e.target.name]:  e.target.value }))
      }
-
-
-
-   
-
-
-
-  //    onchangeEmail = event => {
-
-  //     this.setState({ Email: event.target.value });
-  //     if (!/[a-z0-9._%+-]+@[a-z][0-9,-]+.[a-z]{2,3}$/.test(this.state.email)){
-  //       return true;
-
-  //   }
-  // }
-
-
-
-
 
    onchangeEmail =  event => {
       // await this.setState({ Email: event.target.value });
@@ -390,7 +250,7 @@ class Registration extends Component {
                     className={classes.paper}
                   // helperText={this.helpermailMethod}
                   />
-                </div>
+                </div><br></br>
               </div>
 
 
@@ -406,7 +266,7 @@ class Registration extends Component {
                   helperText={this.helpermailMethod}
                   className={classes.paper}
                 />
-              </div>
+              </div><br></br>
               <div >
                 <TextField
                   required={true}
@@ -420,7 +280,7 @@ class Registration extends Component {
 
 
                 />
-              </div>
+              </div><br></br>
 
               <div >
 
@@ -436,10 +296,10 @@ class Registration extends Component {
                   onChange={this.onchangePassword}
                   className={classes.paper}
                 />
-                {/* </div> */}
+                </div><br></br>
 
 
-
+             <div>
                 <div className="col s6 Reg-Passwordagain" >
                   <TextField
                     required={true}

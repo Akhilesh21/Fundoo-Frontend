@@ -28,7 +28,8 @@ class Login extends Component {
         this.state = {
             Email: "",
             Password: "",
-
+            snackbarOpen: false,
+            snackbarMessage: '',
             error: false,
             message: ""
         };
@@ -65,74 +66,81 @@ class Login extends Component {
 
         
 
+   
+   
+    SnackbarClose = (e) => {
+        this.setState({ snackbarOpen: false})
+        }
+        onChange = (e) => {
+         this.setState({ [e.target.name]: e.target.value})
+          console.log(this.setState({ [e.target.name]:  e.target.value }))
+        }
+   
+        
+        
+        
+        onchangeEmail =  event => {
+            if (event.target.value.match("!/[a-z0-9._%+-]+@[a-z][0-9,-]+.[a-z]{2,3}$/") == null) {
+              console.log("on click function is working", event.target.value)
+              
+              this.setState({ Email: event.target.value });
+              this.setState({ snackbarOpen: true, snackbarMessage: "enter proper email" });   
+            }
+            else {
+              
+              console.log("on click function is working", event.target.value)
+              
+            }
+          };
+        
+         
 
-    // onSubmit = () => {
-    //     this.props.history.push('')
-    //     if (this.state.Email === "") {
-    //       console.log("email is empty")
-    //     } else if (this.state.Password === "") {
-    //       console.log("password is empty")
-    //     }
-    
-    //     else {
-    
-    //       let formaData = new FormData()
-    //       formaData.append('email', this.state.Email)
-    //       formaData.append('password', this.state.Password)
-          
-    //     }
-    // }
-
-    // var loginDetails = {
-    //       email: this.state.Email,
-    //       password: this.state.Password        
-    // }
-    // console.log(loginDetails)
-    // login(formaData).then(response => {
-    //     if(response.status === 200 )
-    // })
+          onchangePassword = event => {
+            if (event.target.value.match("^[A-Za-z0-9]*$") != null){
+            console.log("on click function is working", event.target.value)
+            this.setState({ Password: event.target.value });
+            }
+            else{
+              console.log("on click function is not working", event.target.value)
+              this.setState({ snackbarOpen: true, snackbarMessage: "enter correct password"})
+            }
+          };
+        
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     onSubmit = () => {
-        var loginDetails = {
 
-            email: this.state.Email,
-            password: this.state.Password,
+           
+        this.props.history.push('/newpage')
+        if(this.state.Email === ""){
+            console.log("email is empty")
+        }else if(this.state.Password === ""){
+            console.log("password is empty")
+        }
 
+    else{
+        let formaData = new FormData()
+        formaData.append('email', this.state.Email)
+        formaData.append('password', this.state.Password)
+
+        
+            var loginDetails = {
+       
+                email: this.state.Email,
+               password: this.state.Password,
         }
         console.log(loginDetails)
-       
-    }
+        login(formaData).then(response => {
+            if(response.status === 200){
+                console.log("RESPONSE :",response);
+            }else{
+                console.log("qwerty")
+            }
+        })
+        .catch(
 
+        )
+       }
+    }
 
 
     render() {
@@ -143,6 +151,19 @@ class Login extends Component {
                 <Container maxWidth="sm">
                     <form className="Login" style={{ width: "70%" }} >
                         <h1 className="fundoohead">Fundoonotes</h1>
+
+
+
+                        <Snackbar anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'center',
+                }}
+                open={this.state.snackbarOpen}
+                autoHideDuration={6000}
+                onClose={this.snackbarOpen}
+                message={<span id="message-id"> {this.state.snackbarMessage} </span>}>
+              </Snackbar>
+
 
 
                         <div className="row">
@@ -158,7 +179,7 @@ class Login extends Component {
                                     onChange={this.onchangeEmail}
                                 />
                             </div>
-                        </div>
+                        </div><br></br>
 
 
                         <div className="row" >
@@ -212,9 +233,10 @@ class Login extends Component {
                             </div>
                         </div>
 
-
+                        
                     </form>
                 </Container>
+                
             </div>
         );
     }

@@ -27,3 +27,35 @@ class App  extends React.Component{
   }
 }
 export default App;
+
+
+
+
+
+
+// import React, { Component } from 'react';
+// import './App.css';
+// import {BrowserRouter as Router, Route} from 'react-router-dom'
+// import  Navbar from './component/Navbar'
+// import  Landing from './component/Landing'
+// import  Register from './component/Register'
+// import  Profile from './component/Profile'
+// import  Login from './component/Login'
+
+// class App extends React.Component {
+//   render() {
+//     return (
+//     <Router>
+//     <div className="App">
+//       <Navbar/>
+//       <Router exact path="/" component={Landing}/>
+//       <div className="container">
+//       <Route exact path="/register" component={Register} />
+//       <Route exact path="/login" component={Login} />
+//       <Route exact path="/profile" component={Profile} />
+//       </div>
+//       </div>
+//     </Router>
+//     )
+// }
+// }

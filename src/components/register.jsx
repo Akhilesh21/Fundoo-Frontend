@@ -31,9 +31,10 @@ class Registration extends Component {
       Lastname: "",
       Email: "",
       Password: "",
+      Passwordagain: "",
       snackbarOpen: false,
       snackbarMessage: '',
-      Passwordagain: "",
+     
       error: false,
       err1: false,
       err2: false,
@@ -137,7 +138,10 @@ class Registration extends Component {
   onchangePasswordagain = event => {
 
 
-    
+            // if(event.target.value.match() != null){
+            //    console.log("on click is working", event.target.value)
+            //    this.setState({ Passwordagain:})
+            // }
     if (event.target.value.match("^[A-Za-z0-9]*$") != null){
     console.log("on click function is working", event.target.value)
     this.setState({ Passwordagain: event.target.value });

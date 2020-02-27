@@ -67,8 +67,13 @@ render(){
                         <div style={{ color: '#616161', fontSize: '35px', fontWeight: 'lighter', marginTop: '25px' }}>
                             FUNDOO
                             </div> 
-                            <div style={{ marginTop: '130px' }}><div style={{ color: '#616161' ,fontsize: '30px', fontFamily:'serif',padding: '73px', marginLeft:'-175px', paddingBottom }}>
+             <div style={{ marginTop: '130px' }}><div style={{ color: '#616161' ,fontsize: '30px', fontFamily:'serif',padding: '73px', marginLeft:'-175px', marginLeft: '-175px', paddingBottom: '45px' }}>Forgot Password</div>
                     </div>
+                    <div style={{ width: '100%', marginTop: '-105px' }}>
+                        <div style={{ paddingBottom: '23px',paddingRight: '176px' }}>
+                            <Textfield
+                            required={true}
+                            
             </Box>
           </div>
   )   
@@ -80,7 +85,7 @@ render(){
 
                     
             <div style={{ width: '100%', marginTop: '-105px' }}> 
- <div style={{ marginTop: '130px' }} ><div style={{ color: '#616161', fontSize: '30px', fontFamily: 'serif', padding: '73px', marginLeft: '-175px', paddingBottom: '45px' }}>Forgot Password</div>
+ 
                             <div style={{ paddingBottom: '23px', paddingRight: '176px' }}>
                                 <TextField
                                     required={true}

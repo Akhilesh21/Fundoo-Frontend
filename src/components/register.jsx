@@ -340,7 +340,7 @@ class Registration extends Component {
                     className={classes.paper}
                     style={{ color: "blue" }}
                     onClick={this.loginPage} >
-                    signin
+                    login
                   </Button>
 
                 </div>

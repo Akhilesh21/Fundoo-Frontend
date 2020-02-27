@@ -79,48 +79,36 @@ render(){
                             variant="outlined"
                             value={this.state.Email}
                             onChange={this.onchangeEmail}
-                            
+                            />
+                            </div>
+                            </div>
 
+                            <div style={{ paddingRight: '114px'}}>
+                                variant="outlined"
+                                size="medium"
+                                color="primary"
+                                className={classes.paper}
+                                 <style>={{ color: "blue"}}
+                                 onClick={this.onsubmit}
+                                 >
+                                        Submit
+                                        </Button>
+                                        </div>
+                                        </div>
+                                     </style>
             </Box>
           </div>
-  )   
+  ) ;
+}  
 }
 
 
 
 
 
-                    
-                                />
-                            </div>
-                        </div>
+                
 
 
-
-
-
-                        <div style={{ paddingRight: '114px' }}>                        <Button
-                            variant="outlined"
-                            size="medium"
-                            color="primary"
-                            className={classes.paper}
-                            style={{ color: "blue" }}
-                            onClick={this.onSubmit}
-                        >
-                            Submit
-                </Button>
-                        </div>
-
-                    </div>
-
-
-
-
-                </Box>
-            </div>
-
-        );
-    }
-}
 
 export default Forgotpassword
+

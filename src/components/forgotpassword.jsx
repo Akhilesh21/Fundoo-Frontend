@@ -73,7 +73,14 @@ render(){
                         <div style={{ paddingBottom: '23px',paddingRight: '176px' }}>
                             <Textfield
                             required={true}
+                            error={this.state.error}
+                            id="Email"
+                            label="Email"
+                            variant="outlined"
+                            value={this.state.Email}
+                            onChange={this.onchangeEmail}
                             
+
             </Box>
           </div>
   )   
@@ -84,17 +91,6 @@ render(){
 
 
                     
-            <div style={{ width: '100%', marginTop: '-105px' }}> 
- 
-                            <div style={{ paddingBottom: '23px', paddingRight: '176px' }}>
-                                <TextField
-                                    required={true}
-                                    error={this.state.error}
-                                    id="Email"
-                                    label="Email"
-                                    variant="outlined"
-                                    value={this.state.Email}
-                                    onChange={this.onchangeEmail}
                                 />
                             </div>
                         </div>

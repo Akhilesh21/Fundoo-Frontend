@@ -2,7 +2,13 @@
     text-align: center;
     color: rgb(85, 219, 107);
   }
-  
+  .card_style{
+    height: -webkit-fill-available;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .signup {
     text-align: center;
     color: rgb(76, 136, 27);
@@ -74,10 +80,7 @@
 
   .row {
     display: flex;
-    justify-content: space-evenly;
-    width: 105%;
-    /* background: yellowgreen; */
-    margin-left: 43px;
+    justify-content: center;
   }
 
   .snackbar {

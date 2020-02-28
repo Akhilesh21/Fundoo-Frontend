@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import  {BrowserRouter  as Router, Route} from "react-router-dom"
+import { Switch } from 'react-router-dom';
+
 import Registration from './components/register'
 import Login from './components/login'
 import Forgotpassword from './components/forgotpassword'
@@ -21,10 +23,11 @@ class App  extends React.Component{
           </p>
          */}
         {/* <Route path="/" exact component={Registration}/> */}
-        <Route path="/login"  exact component={Login}/>
+       <Switch>
+        <Route path="/login" exact={true} component={Login}/>
         <Route path="/register" component={Registration}/>
         <Route path="/forgot" component={Forgotpassword}/>
-
+        </Switch>
         </Router>
     )
   }

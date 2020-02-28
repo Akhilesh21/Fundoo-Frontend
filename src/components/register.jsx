@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from 'react-router-dom'
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import { Container, Card, Snackbar } from "@material-ui/core";
+import { Container, Card, Snackbar,IconButton } from "@material-ui/core";
+import CloseIcon from '@material-ui/icons/Close';
 import TextField from "@material-ui/core/TextField";
 import './User.css'
 import { register } from "../Controller/UserController";
@@ -135,40 +136,51 @@ class Registration extends Component {
   
 
 
-  onchangePasswordagain = event => {
-
-
+  onchangePasswordagain =async  (event) => {
+    await this.setState({
+      Passwordagain:event.target.value
+    })
             // if(event.target.value.match() != null){
             //    console.log("on click is working", event.target.value)
             //    this.setState({ Passwordagain:})
             // }
-    if (event.target.value.match("^[A-Za-z0-9]*$") != null){
-    console.log("on click function is working", event.target.value)
-    this.setState({ Passwordagain: event.target.value });
-    }
-    else{
-      console.log("on click function is not working", event.target.value)
-      this.setState({ snackbarOpen: true, snackbarMessage: "enter same password"})
-    }
+    // if (event.target.value.match("^[A-Za-z0-9]*$") != null){
+    // console.log("on click function is working", event.target.value)
+    // this.setState({ Passwordagain: event.target.value });
+    // }
+    this.checkPassword();
   };
-
+checkPassword(){
+  if(this.state.Password===this.state.Passwordagain){
+    //console.log("on click function is not working", event.target.value)
+    this.setState({ snackbarOpen: true, snackbarMessage: "done"})
+  }
+  else{
+    //console.log("on click function is not working", event.target.value)
+    this.setState({ snackbarOpen: true, snackbarMessage: "enter same password"})
+  }
+}
 
   onSubmit = () => {
-    this.props.history.push('/login')
+    
     if (this.state.Firstname === "") {
       console.log("firstname is empty")
+      this.setState({ snackbarOpen: true, snackbarMessage: "Enter first name" })
     } else if (this.state.Lastname === "") {
+      this.setState({ snackbarOpen: true, snackbarMessage: "Enter first name" })
       console.log("lastname is empty")
     } else if (this.state.Email === "") {
+      this.setState({ snackbarOpen: true, snackbarMessage: "Enter first name" })
       console.log("email is empty")
     } else if (this.state.Password === "") {
+      this.setState({ snackbarOpen: true, snackbarMessage: "Enter first name" })
       console.log("password is empty")
     } else if (this.state.confirmPassword === "") {
+      this.setState({ snackbarOpen: true, snackbarMessage: "Enter first name" })
       console.log("requires same password")
     }
 
     else {
-
       let formaData = new FormData()
       formaData.append('fname', this.state.Firstname)
       formaData.append('lname', this.state.Lastname)
@@ -189,7 +201,14 @@ class Registration extends Component {
       }
       console.log(registrationDetails)
       register(formaData).then(response => {
+
         if (response.status === 200) {
+                   this.setState({ snackbarOpen: true, snackbarMessage: response.statusText })
+        // this.props.history.push('/login')
+        setTimeout(()=>{
+          this.props.history.push('/login')
+        },2000)
+         
           console.log("RESPONSE :", response);
         } else {
           console.log("fgtgybhbyunyuhnjunujuju");
@@ -204,19 +223,23 @@ class Registration extends Component {
 
   }
 
-
+  handleCloseSnackbar=()=>{
+    this.setState({snackbarOpen:false})
+  }
 
   render() {
     const classes = { useStyles };
 
     return (
-
-
-
-
-
-
-      <Card>
+      <div className="card_style">
+      <Card style={{
+        width:"50%",
+        display:"flex",
+        justifyContent:"center",
+        flexDirection:"column",
+        height:'77vh',
+        boxShadow:"0px 0px 10px 2px"
+      }}>
         <div className="mainReg" >
           <div maxWidth="5px" fixed >
             <form className="Register" >
@@ -233,6 +256,15 @@ class Registration extends Component {
                 open={this.state.snackbarOpen}
                 autoHideDuration={6000}
                 onClose={this.snackbarOpen}
+                action={
+                    <IconButton
+                      aria-label="close"
+                      color="inherit"
+                      onClick={this.handleCloseSnackbar}
+                    >
+                      <CloseIcon />
+                    </IconButton>
+                }
                 message={<span id="message-id"> {this.state.snackbarMessage} </span>}>
               </Snackbar>
 
@@ -326,7 +358,8 @@ class Registration extends Component {
                     size="medium"
                     color="primary"
                     className={classes.paper}
-                    style={{ color: "blue" }}
+                    style={{ color: "blue",
+                    margin:"10px" }}
                     onClick={this.onSubmit}
                   >
                     Submit
@@ -334,11 +367,16 @@ class Registration extends Component {
                 </div>
                 <div className="col s6 Reg-button">
                   <Button
+                  
                     variant="outlined"
                     size="medium"
                     color="primary"
                     className={classes.paper}
-                    style={{ color: "blue" }}
+                    style={{ 
+                      color: "blue",
+                      margin:"10px",
+                      marginBottom:"10px"
+                     }}
                     onClick={this.loginPage} >
                     login
                   </Button>
@@ -351,7 +389,7 @@ class Registration extends Component {
 
         </div>
       </Card>
-
+      </div>
     );
   }
 }

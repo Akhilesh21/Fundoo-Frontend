@@ -87,7 +87,7 @@ class Forgotpassword extends Component {
 
                 <Box display="flex" justifyContent="center" borderColor="text.primary" {...defaultProps} >
                     <div style={{ marginTop: '14px', marginLeft: '14px' }}>
-                        {/* <img width='60px' height='60px' src={"https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"} alt="Logo" /> */}
+                      
                     </div>
                     <div style={{ color: '#616161', fontSize: '35px', fontWeight: 'lighter', marginTop: '25px' }}>
 

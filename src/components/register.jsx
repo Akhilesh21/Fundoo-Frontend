@@ -167,16 +167,16 @@ checkPassword(){
       console.log("firstname is empty")
       this.setState({ snackbarOpen: true, snackbarMessage: "Enter first name" })
     } else if (this.state.Lastname === "") {
-      this.setState({ snackbarOpen: true, snackbarMessage: "Enter first name" })
+      this.setState({ snackbarOpen: true, snackbarMessage: "Enter last name" })
       console.log("lastname is empty")
     } else if (this.state.Email === "") {
-      this.setState({ snackbarOpen: true, snackbarMessage: "Enter first name" })
+      this.setState({ snackbarOpen: true, snackbarMessage: "Enter email" })
       console.log("email is empty")
     } else if (this.state.Password === "") {
-      this.setState({ snackbarOpen: true, snackbarMessage: "Enter first name" })
+      this.setState({ snackbarOpen: true, snackbarMessage: "Enter correct password" })
       console.log("password is empty")
     } else if (this.state.confirmPassword === "") {
-      this.setState({ snackbarOpen: true, snackbarMessage: "Enter first name" })
+      this.setState({ snackbarOpen: true, snackbarMessage: "Enter same password" })
       console.log("requires same password")
     }
 

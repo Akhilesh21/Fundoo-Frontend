@@ -46,14 +46,14 @@
   }
   
   .mainReg {
-    margin-top: 5%;
+    /* margin-top: 5%;
     margin-left: 35%;
     margin-right: 28%;
     margin-bottom: 20%;
   
     border: 5px solid black;
     border-radius: 1em;
-    border-spacing: 2em;
+    border-spacing: 2em; */
   }
   
   .mainLogin {

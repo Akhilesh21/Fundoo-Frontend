@@ -6,7 +6,8 @@ import Button from "@material-ui/core/Button";
 // import { Container } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import { login } from '../Controller/UserController';
-import { Container, Card, Snackbar } from "@material-ui/core";
+import CloseIcon from '@material-ui/icons/Close';
+import { Container, Card, Snackbar, Icon, IconButton } from "@material-ui/core";
 
 
 const useStyles = makeStyles(theme => ({
@@ -88,17 +89,20 @@ class Login extends Component {
             console.log("on click function is not working", event.target.value)
             this.setState({ snackbarOpen: true, snackbarMessage: "enter correct password" })
         }
-    };
+    };  
 
 
     onSubmit = () => {
 
 
-        this.props.history.push('/forgot')
+        // this.props.history.push('/welcome page')
+        
         if (this.state.Email === "") {
             console.log("email is empty")
+            this.setState({ snackbarOpen: true, snackbarMessage: "Enter email" })
         } else if (this.state.Password === "") {
             console.log("password is empty")
+            this.setState({ snackbarOpen: true, snackbarMessage: "Enter password" })
         }
 
         else {
@@ -114,7 +118,13 @@ class Login extends Component {
             }
             console.log(loginDetails)
             login(formaData).then(response => {
+      
                 if (response.status === 200) {
+                    this.setState({ snackbarOpen: true, snackbarMessage: response.statusText })
+                    setTimeout(()=>{
+                        this.props.history.push('/welcomepage')
+                      },2000)
+              
                     console.log("RESPONSE :", response);
                 } else {
                     console.log("qwerty")
@@ -138,13 +148,23 @@ class Login extends Component {
 
 
 
-                        <Snackbar anchorOrigin={{
+                        <Snackbar 
+                        anchorOrigin={{
                             vertical: 'top',
                             horizontal: 'center',
                         }}
                             open={this.state.snackbarOpen}
                             autoHideDuration={6000}
                             onClose={this.snackbarOpen}
+                            action={
+                                <IconButton
+                                aria-label="close"
+                                color="inherit"
+                                onClick={this.handleCloseSnackbar}
+                                >
+                                    <CloseIcon />
+                                    </IconButton>
+                            }
                             message={<span id="message-id"> {this.state.snackbarMessage} </span>}>
                         </Snackbar>
 

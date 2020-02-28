@@ -6,6 +6,7 @@ import { Switch } from 'react-router-dom';
 import Registration from './components/register'
 import Login from './components/login'
 import Forgotpassword from './components/forgotpassword'
+import Dashboard from './components/dashboard'
 
 // import "./App.css";
 
@@ -27,6 +28,7 @@ class App  extends React.Component{
         <Route path="/login" exact={true} component={Login}/>
         <Route path="/register" component={Registration}/>
         <Route path="/forgot" component={Forgotpassword}/>
+        <Route path="/dashboard" component={Dashboard}/>
         </Switch>
         </Router>
     )

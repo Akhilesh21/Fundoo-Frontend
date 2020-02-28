@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom' 
 import Button from "@material-ui/core/Button";
 // import Grid from "@material-ui/core/Grid";
 // import { Container } from "@material-ui/core";
@@ -122,7 +122,7 @@ class Login extends Component {
                 if (response.status === 200) {
                     this.setState({ snackbarOpen: true, snackbarMessage: response.statusText })
                     setTimeout(()=>{
-                        this.props.history.push('/welcomepage')
+                        this.props.history.push('/dashboard')
                       },2000)
               
                     console.log("RESPONSE :", response);

@@ -15,7 +15,7 @@ let headers = {
 
 
   
-export async function login(data){
+    export async function login(data){
   let response = axios.post('http://127.0.0.1:8000/api/login', data);
   console.log("to check for response",response.id)
   return response

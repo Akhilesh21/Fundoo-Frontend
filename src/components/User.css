@@ -2,7 +2,8 @@
     text-align: center;
     color: rgb(85, 219, 107);
   }
-  .card_style{
+
+.card_style{
     height: -webkit-fill-available;
     width: 100%;
     display: flex;
@@ -57,10 +58,12 @@
   }
   
   .mainLogin {
-    margin-top: 5%;
-    margin-left: 30%;
-    margin-right: 25%;
+    margin-top: 7%;
+    margin-left: 27%;
+    margin-right: 27%;
     margin-bottom: 30%;
+    boxShadow:"0px 0px 10px 2px";
+    display:"flex";
   
     border: 5px solid rgb(0, 0, 0);
     border-radius: 1em;
@@ -70,6 +73,7 @@
   .Register {
     padding-left: 18%;
     padding-right: 11%;
+    
   }
   
   .Login {
@@ -106,3 +110,5 @@
    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
    animation: fadein 0.5s, fadeout 0.5s 2.5s;
   }
+
+ 

@@ -21,3 +21,9 @@ let headers = {
   return response
 
 }
+
+       export async function forgot(data){
+       let response = axios.post('',data);
+       console.log("to check for response",response.id)
+        return response
+}

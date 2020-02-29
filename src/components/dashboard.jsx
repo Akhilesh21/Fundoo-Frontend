@@ -13,8 +13,8 @@ class Dashboard extends Component {
     render() {
         return(
             <div className="dashboard">
-                <h1>gfdhighi</h1>
-                hai
+                <h1>Welcome to react fundoo notes</h1>
+                
     </div>
         )
     }

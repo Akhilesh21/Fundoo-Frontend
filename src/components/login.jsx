@@ -142,9 +142,9 @@ class Login extends Component {
 
         return (
             <div className="mainLogin" >
-                <Container maxWidth="sm">
-                    <form className="Login" style={{ width: "70%" }} >
-                        <h1 className="fundoohead">Fundoonotes</h1>
+               
+                    <form className="Login" style={{ width: "100%" }} >
+                        <center><h1 className="fundoohead">Fundoonotes</h1></center>
 
 
 
@@ -199,10 +199,12 @@ class Login extends Component {
                                     className={classes.paper}
                                 />
                             </div>
-                        </div>
+                        </div><br></br>
 
-                        <div style={{ paddingRight: '177px', paddingBottom: '10px' }}>
+                        <div className="row" >
+                          <div style={{ paddingBlockEnd: '20px', paddingBottom: '10px' }}>
                             <a href="/forgot">forgot password?</a>
+                        </div>
                         </div>
 
                         
@@ -243,9 +245,7 @@ class Login extends Component {
 
 
                     </form>
-                </Container>
-
-            </div>
+                </div>
         );
     }
 }

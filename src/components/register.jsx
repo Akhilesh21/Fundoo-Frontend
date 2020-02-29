@@ -233,11 +233,11 @@ checkPassword(){
     return (
       <div className="card_style">
       <Card style={{
-        width:"50%",
+        width:"35%",
         display:"flex",
-        justifyContent:"center",
+        justifyContent:"left-center",
         flexDirection:"column",
-        height:'77vh',
+        height:'86vh',
         boxShadow:"0px 0px 10px 2px"
       }}>
         <div className="mainReg" >

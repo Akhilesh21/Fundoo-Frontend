@@ -232,6 +232,7 @@ checkPassword(){
 
     return (
       <div className="card_style">
+        
       <Card style={{
         width:"35%",
         display:"flex",

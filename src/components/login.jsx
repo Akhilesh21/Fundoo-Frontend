@@ -142,8 +142,20 @@ class Login extends Component {
 
         return (
             <div className="mainLogin" >
-               
-                    <form className="Login" style={{ width: "100%" }} >
+                <Card style={{
+                    width : "35%",
+                    display: "flex",
+                    justifyContent:"right-center",
+                    flexDirection:"column",
+                    height:'60vh',
+                    boxShadow:"0px 0px 10px 2px"
+
+
+                }}>
+                          
+                    <form className="Login" style={{
+                         width: "100%"
+                          }} >
                         <center><h1 className="fundoohead">Fundoonotes</h1></center>
 
 
@@ -245,6 +257,7 @@ class Login extends Component {
 
 
                     </form>
+                    </Card>
                 </div>
         );
     }

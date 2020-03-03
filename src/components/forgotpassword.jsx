@@ -122,33 +122,7 @@ class Forgotpassword extends Component {
                     <div style={{ marginTop: '14px', marginLeft: '14px' }}>
                       
                     </div>
-                    <div style={{ color: '#616161', fontSize: '35px', fontWeight: 'lighter', marginTop: '25px' }}>
-
-                        fundoo
-                </div>
-                    
-                    <Snackbar
-                     anchorOrigin={{
-                        vertical: 'top',
-                        horizontal: 'center',
-                      }}
-                      open = {this.state.snackbarOpen}
-                      autoHideDuration={6000}
-                      onClose={ this.handleCloseSnackbar}
-                      action = {
-                          <IconButton>
-                               aria-label="close"
-                               color="inherit"
-                               onClick={this.handleCloseSnackbar}
-                       >
-                          <CloseIcon />
-                          </IconButton>
-                      }  
-                      message={<span id="message-id"> {this.state.snackbarMessage} </span>}>
-                      </Snackbar>
-        
-                           
-
+        <div style={{ color: '#616161', fontSize: '35px', fontWeight: 'lighter', marginTop: '25px' }}>fundoo</div>
 
                   
                     <div style={{ width: '100%', marginTop: '-105px' }}>
@@ -163,10 +137,33 @@ class Forgotpassword extends Component {
                                     value={this.state.Email}
                                     onChange={this.onchangeEmail}
                                 />
-                            </div>
-                        </div>
+                    
+
+
+                     <Snackbar
+                     anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'center',
+                      }}
+                      open = {this.state.snackbarOpen}
+                      autoHideDuration={6000}
+                      onClose={ this.this.snackbarOpen}
+                      action = {
+                          <IconButton>
+                               aria-label="close"
+                               color="inherit"
+                               onClick={this.handleCloseSnackbar}
+                       >
+                          <CloseIcon />
+                          </IconButton>
+                      }  
+                      message={<span id="message-id"> {this.state.snackbarMessage} </span>}>
+                      </Snackbar>
+         
 
                         
+                            </div>
+                        </div>
 
 
 

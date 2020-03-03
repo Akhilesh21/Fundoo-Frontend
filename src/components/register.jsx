@@ -82,7 +82,7 @@ class Registration extends Component {
         this.setState({ snackbarOpen: true, snackbarMessage: "enter proper email" });
 
         // console.log("on click function is working", event.target.value)
-   }
+      }
       else {
         
         console.log("on click function is working", event.target.value)
@@ -106,7 +106,7 @@ class Registration extends Component {
 
     }
   };
-
+ 
 
   onchangeLastname = event => {
     if (event.target.value.match("^[a-zA-Z]*$") != null) {
@@ -140,23 +140,16 @@ class Registration extends Component {
     await this.setState({
       Passwordagain:event.target.value
     })
-            // if(event.target.value.match() != null){
-            //    console.log("on click is working", event.target.value)
-            //    this.setState({ Passwordagain:})
-            // }
-    // if (event.target.value.match("^[A-Za-z0-9]*$") != null){
-    // console.log("on click function is working", event.target.value)
-    // this.setState({ Passwordagain: event.target.value });
-    // }
+           
     this.checkPassword();
   };
 checkPassword(){
   if(this.state.Password===this.state.Passwordagain){
-    //console.log("on click function is not working", event.target.value)
+    
     this.setState({ snackbarOpen: true, snackbarMessage: "done"})
   }
   else{
-    //console.log("on click function is not working", event.target.value)
+    
     this.setState({ snackbarOpen: true, snackbarMessage: "enter same password"})
   }
 }

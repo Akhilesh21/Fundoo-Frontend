@@ -1,11 +1,14 @@
 import React , { Component } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import { Container } from "@material-ui/core/Grid";
+//import { Container } from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import "./User.css";
 import Box from '@material-ui/core/Box';
 import { forgotpassword } from "../Controller/UserController";
+import { Container, Card, Snackbar,IconButton } from "@material-ui/core";
+//import { IconButton } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 
 const defaultProps = {
     bgcolor: 'background.paper',
@@ -45,36 +48,66 @@ class Forgotpassword extends Component {
 
 
 
-
-
-    onchangeEmail = async event => {
-        let emailData = event.target.value
-        await this.setState({ Email: emailData });
-        console.log("email validation state", this.state.Email);
-
-        if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.Email)) {
-            console.log("email");
-
+     SnackbarClose = (e) => {
+         this.setState({ snackbarOpen: false})
         }
+        onChange = (e) => {
+            this.setState({ [e.target.name]: e.target.value})
+            console.log(this.setState({ [e.target.name]: e.target.value}))
+        }
+ 
+
+    onchangeEmail = event => {
+       
+        if (event.target.value.match("!/[a-z0-9._%+-]+@[a-z][0-9,-]+.[a-z]{2,3}$/") == null) {
+
+            console.log("on click functon is working", event.target.value)
+            this.setState({ Email: event.target.value });
+            this.setState({ snackbarOpen: true, snackbarMessage: "enter proper email"});
+     }
         else {
+           console.log("on click function is working", event.target.value)
             console.log("not email");
-
-
         }
-
     };
 
 
 
     onSubmit = () => {
+          
+        if(this.state.Email === ""){
+            console.log("email is empty")
+        this.setState({ snackbarOpen: true, snackbarMessage: "Enter email" })
+       }
+       else{
+           let formData = new FormData()
+           formData.append('email', this.state.Email)
+       
+          
         var forgotDetails = {
-
             email: this.state.Email,
 
 
         }
-        console.log(forgotDetails)
-       
+    //     console.log(forgotDetails)
+    //     forgotpassword(formData).then(response => {
+    //         if(response.status === 200){
+    //             this.setState({ snackbarOpen: true, snackbarMessage: response.statusText })
+    //             setTimeout(()=>{
+    //                 this.props.history.push('/')
+    //               },2000)
+                  
+    //               console.log("RESPONSE :", response);
+    //             } else {
+    //                 console.log("fgtgybhbyunyuhnjunujuju");
+    //             }
+    //        }
+    //        )
+    //        .catch(
+
+    //        )
+        }
+           
     }
 
 
@@ -93,6 +126,31 @@ class Forgotpassword extends Component {
 
                         fundoo
                 </div>
+                    
+                    <Snackbar
+                     anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'center',
+                      }}
+                      open = {this.state.snackbarOpen}
+                      autoHideDuration={6000}
+                      onClose={ this.handleCloseSnackbar}
+                      action = {
+                          <IconButton>
+                               aria-label="close"
+                               color="inherit"
+                               onClick={this.handleCloseSnackbar}
+                       >
+                          <CloseIcon />
+                          </IconButton>
+                      }  
+                      message={<span id="message-id"> {this.state.snackbarMessage} </span>}>
+                      </Snackbar>
+        
+                           
+
+
+                  
                     <div style={{ width: '100%', marginTop: '-105px' }}>
                         <div style={{ marginTop: '130px' }} ><div style={{ color: '#616161', fontSize: '30px', fontFamily: 'serif', padding: '73px', marginLeft: '-175px', paddingBottom: '45px' }}>Forgot Password</div>
                             <div style={{ paddingBottom: '23px', paddingRight: '176px' }}>
@@ -108,6 +166,8 @@ class Forgotpassword extends Component {
                             </div>
                         </div>
 
+                        
+
 
 
 
@@ -122,7 +182,7 @@ class Forgotpassword extends Component {
                             onClick={this.onSubmit}
                         >
                             Submit
-                </Button>
+                 </Button>
                         </div>
 
                     </div>

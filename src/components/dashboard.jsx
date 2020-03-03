@@ -13,7 +13,8 @@ class Dashboard extends Component {
     render() {
         return(
             <div className="dashboard">
-                <h1>Welcome to react fundoo notes</h1>
+                <h1>Welcome to react fundoo notes---------Laravel+react</h1>
+                <h1>Welcome to BridgeLabz</h1>
                 
     </div>
         )

@@ -1,13 +1,12 @@
 import React , { Component } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-//import { Container } from "@material-ui/core/Grid";
+import { withRouter } from 'react-router-dom'
 import TextField from "@material-ui/core/TextField";
-import "./User.css";
 import Box from '@material-ui/core/Box';
 import { forgotpassword } from "../Controller/UserController";
 import { Container, Card, Snackbar,IconButton } from "@material-ui/core";
-//import { IconButton } from '@material-ui/core';
+import "./User.css";
 import CloseIcon from '@material-ui/icons/Close';
 
 const defaultProps = {
@@ -86,29 +85,29 @@ class Forgotpassword extends Component {
           
         var forgotDetails = {
             email: this.state.Email,
-
-
-        }
-    //     console.log(forgotDetails)
-    //     forgotpassword(formData).then(response => {
-    //         if(response.status === 200){
-    //             this.setState({ snackbarOpen: true, snackbarMessage: response.statusText })
-    //             setTimeout(()=>{
-    //                 this.props.history.push('/')
-    //               },2000)
+   }
+        console.log(forgotDetails)
+        forgotpassword(formData).then(response => {
+            if(response.status === 200){
+                this.setState({ snackbarOpen: true, snackbarMessage: response.statusText })
+                setTimeout(()=>{
+                    this.props.history.push('/for')
+                  },2000)
                   
-    //               console.log("RESPONSE :", response);
-    //             } else {
-    //                 console.log("fgtgybhbyunyuhnjunujuju");
-    //             }
-    //        }
-    //        )
-    //        .catch(
+                  console.log("RESPONSE :", response);
+                } else {
+                    console.log("hello");
+                }
+           }
+           )
+           .catch(
 
-    //        )
+           )
         }
            
     }
+
+
     handleCloseSnackbar=()=>{
         this.setState({snackbarOpen:false})
       }
@@ -125,7 +124,7 @@ class Forgotpassword extends Component {
 
                 <Box display="flex" justifyContent="center" borderColor="text.primary" {...defaultProps} >
 
-                
+
 
 
 
@@ -217,4 +216,5 @@ class Forgotpassword extends Component {
     }
 }
 
-export default Forgotpassword
+
+export default withRouter(Forgotpassword);

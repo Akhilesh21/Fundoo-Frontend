@@ -388,4 +388,4 @@ checkPassword(){
   }
 }
 
-export default withRouter(Registration);
+forgotpassword

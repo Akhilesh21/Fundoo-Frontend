@@ -81,7 +81,7 @@ class Registration extends Component {
         this.setState({ Email: event.target.value });
         this.setState({ snackbarOpen: true, snackbarMessage: "enter proper email" });
 
-        // console.log("on click function is working", event.target.value)
+      
       }
       else {
         
@@ -388,4 +388,4 @@ checkPassword(){
   }
 }
 
-forgotpassword
+export default withRouter(Registration);

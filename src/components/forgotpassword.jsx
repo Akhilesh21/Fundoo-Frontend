@@ -140,7 +140,7 @@ class Forgotpassword extends Component {
                     
 
 
-                     <Snackbar
+                     {/* <Snackbar
                      anchorOrigin={{
                         vertical: 'top',
                         horizontal: 'center',
@@ -159,7 +159,7 @@ class Forgotpassword extends Component {
                       }  
                       message={<span id="message-id"> {this.state.snackbarMessage} </span>}>
                       </Snackbar>
-         
+          */}
 
                         
                             </div>

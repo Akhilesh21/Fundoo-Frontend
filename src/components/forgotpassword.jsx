@@ -109,6 +109,10 @@ class Forgotpassword extends Component {
         }
            
     }
+    handleCloseSnackbar=()=>{
+        this.setState({snackbarOpen:false})
+      }
+    
 
 
 
@@ -117,37 +121,23 @@ class Forgotpassword extends Component {
 
         return (
             <div style={{ paddingRight: '50%', marginLeft: '180px' }}>
+                
 
                 <Box display="flex" justifyContent="center" borderColor="text.primary" {...defaultProps} >
-                    <div style={{ marginTop: '14px', marginLeft: '14px' }}>
-                      
-                    </div>
-        <div style={{ color: '#616161', fontSize: '35px', fontWeight: 'lighter', marginTop: '25px' }}>fundoo</div>
 
-                  
-                    <div style={{ width: '100%', marginTop: '-105px' }}>
-                        <div style={{ marginTop: '130px' }} ><div style={{ color: '#616161', fontSize: '30px', fontFamily: 'serif', padding: '73px', marginLeft: '-175px', paddingBottom: '45px' }}>Forgot Password</div>
-                            <div style={{ paddingBottom: '23px', paddingRight: '176px' }}>
-                                <TextField
-                                    required={true}
-                                    error={this.state.error}
-                                    id="Email"
-                                    label="Email"
-                                    variant="outlined"
-                                    value={this.state.Email}
-                                    onChange={this.onchangeEmail}
-                                />
-                    
+                
 
 
-                     {/* <Snackbar
+
+                 
+                <Snackbar
                      anchorOrigin={{
                         vertical: 'top',
                         horizontal: 'center',
                       }}
                       open = {this.state.snackbarOpen}
                       autoHideDuration={6000}
-                      onClose={ this.this.snackbarOpen}
+                      onClose={ this.snackbarOpen}
                       action = {
                           <IconButton>
                                aria-label="close"
@@ -159,12 +149,45 @@ class Forgotpassword extends Component {
                       }  
                       message={<span id="message-id"> {this.state.snackbarMessage} </span>}>
                       </Snackbar>
-          */}
+         
+
+
+
+
+                    <div style={{ marginTop: '14px', marginLeft: '14px' }}>
 
                         
-                            </div>
-                        </div>
+                      
+                    </div>
+        <div style={{ color: '#616161', fontSize: '35px', fontWeight: 'lighter', marginTop: '25px' }}>fundoo</div>
 
+                  
+                    <div style={{ width: '100%', marginTop: '-105px' }}>
+                        <div style={{ marginTop: '130px' }} ><div style={{ color: '#616161', fontSize: '30px', fontFamily: 'serif', padding: '73px', marginLeft: '-175px', paddingBottom: '45px' }}>Forgot Password</div>
+                            <div style={{ paddingBottom: '23px', paddingRight: '176px' }}>
+
+                            
+
+                                <TextField
+                                    required={true}
+                                    error={this.state.error}
+                                    id="Email"
+                                    label="Email"
+                                    variant="outlined"
+                                    value={this.state.Email}
+                                    onChange={this.onchangeEmail}
+                                />
+                                </div>
+                                </div>
+                            
+                              
+                    
+
+
+
+                        
+                            
+                     
 
 
 
@@ -194,5 +217,4 @@ class Forgotpassword extends Component {
     }
 }
 
-// export default Forgotpassword
 export default Forgotpassword

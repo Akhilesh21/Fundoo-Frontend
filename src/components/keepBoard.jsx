@@ -16,4 +16,6 @@ const useStyles = makeStyles({
       width: 'auto',
     },
   });
-  
+export default function TemporaryDrawer() {
+    
+}  

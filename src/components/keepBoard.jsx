@@ -23,3 +23,20 @@ const useStyles = makeStyles({
       left: false,
      
     });
+
+    const toggleDrawer = (side, open) => event => {
+      if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+      }
+  
+      setState({ ...state, [side]: open });
+    };
+
+    const sideList = side => (
+      <div
+        className={classes.list}
+        role="presentation"
+        onClick={toggleDrawer(side, false)}
+        onKeyDown={toggleDrawer(side, false)}
+      >
+  

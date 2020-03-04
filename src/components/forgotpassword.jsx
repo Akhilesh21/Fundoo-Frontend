@@ -94,7 +94,7 @@ class Forgotpassword extends Component {
             if(response.status === 200){
                 this.setState({ snackbarOpen: true, snackbarMessage: response.statusText })
                 setTimeout(()=>{
-                    this.props.history.push('/responsepage')
+                    this.props.history.push('/newpage')
                   },2000)
                   
                   console.log("RESPONSE :", response);

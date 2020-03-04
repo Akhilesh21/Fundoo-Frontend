@@ -9,12 +9,24 @@ class ResponsePage extends Component {
    this.state = {
 
    };
+
+
+   setTimeout(()=>{
+    this.props.history.push('/login')
+  },5000)
+   
+
+
+       
+
+
+
     }
     render() {
         return(
             <div className="responsepage">
                 <h1>Request has been sent for Forgot password</h1>
-                <h1>Please check </h1>
+                <h1>Please check Mail</h1>
                 
     </div>
         )

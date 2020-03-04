@@ -7,6 +7,8 @@ import Registration from './components/register'
 import Login from './components/login'
 import Forgotpassword from './components/forgotpassword'
 import Dashboard from './components/dashboard'
+import ResponsePage from './components/newPage'
+import TemporaryDrawer from './components/test'
 
 // import "./App.css";
 
@@ -29,7 +31,9 @@ class App  extends React.Component{
         <Route path="/register" component={Registration}/>
         <Route path="/forgot" component={Forgotpassword}/>
         <Route path="/dashboard" component={Dashboard}/>
-        <Route path="/responsepage" component={Response}/>
+        <Route path="/newpage" component={ResponsePage}/>
+        <Route path="/test" component={TemporaryDrawer}/>
+
         </Switch>
         </Router>
     )

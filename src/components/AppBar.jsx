@@ -141,10 +141,7 @@ export default function PrimarySearchAppBar(props) {
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-    const theme = useTheme();
-
-    const [open, setOpen] = React.useState(false);
-
+  
     const handleProfileMenuOpen = event => {
         setAnchorEl(event.currentTarget);
     };

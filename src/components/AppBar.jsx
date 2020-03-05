@@ -1,5 +1,5 @@
 import React from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -35,7 +35,47 @@ const useStyles = makeStyles(theme => ({
             duration: theme.transitions.duration.enteringScreen
         })
     },
-
+    hide: {
+        display: "none"
+    },
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0
+    },
+    drawerPaper: {
+        top: "79px",
+        width: drawerWidth
+    },
+      
+    drawerHeader: {
+        display: "flex",
+        alignItems: "center",
+        padding: theme.spacing(0, 1),
+        ...theme.mixins.toolbar,
+        justifyContent: "flex-end"
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+        transition: theme.transitions.create("margin", {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen
+        }),
+        marginLeft: -drawerWidth
+    },
+    contentShift: {
+        transition: theme.transitions.create("margin", {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen
+        }),
+        marginLeft: 0
+    },
+    palette: {
+        backgroundColor: '#fafafa'
+    },
+    grow: {
+        flexGrow: 1,
+    },
     menuButton: {
         marginRight: theme.spacing(2),
     },
@@ -94,13 +134,16 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar(props) {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const theme = useTheme();
+
+    const [open, setOpen] = React.useState(false);
 
     const handleProfileMenuOpen = event => {
         setAnchorEl(event.currentTarget);

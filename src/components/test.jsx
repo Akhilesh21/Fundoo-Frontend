@@ -9,6 +9,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
+import AddAlertIcon from '@material-ui/icons/AddAlert';
 
 
 const useStyles = makeStyles({
@@ -47,7 +51,7 @@ export default function TemporaryDrawer() {
       <List>
         {['Notes', 'Remainders',].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemIcon>{index % 2 === 0 ? <EmojiObjectsIcon /> : <AddAlertIcon />}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
@@ -57,7 +61,7 @@ export default function TemporaryDrawer() {
       <List>
         {['Inspiration', 'Personal', 'work', 'Edit labels'].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <EditIcon />}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
@@ -66,7 +70,7 @@ export default function TemporaryDrawer() {
       <List>
         {['Archive', 'Trash',].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <DeleteIcon />}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}

@@ -48,6 +48,7 @@ const useStyles = makeStyles({
         ))}  
          </List>
        <Divider />
+       
       <div>LABELS</div>
       <List>
         {['Inspiration', 'Personal', 'work', 'Edit labels'].map((text, index) => (
@@ -70,3 +71,4 @@ const useStyles = makeStyles({
       
     </div>
   );
+ 

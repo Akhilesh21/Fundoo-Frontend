@@ -224,7 +224,10 @@ checkPassword(){
     const classes = { useStyles };
 
     return (
-      <div className="card_style">
+      <div className="card_style" style={{
+        backgroundImage: 'url()',
+         backgroundSize: '100% 100%'
+      }}>
         
       <Card style={{
         width:"35%",

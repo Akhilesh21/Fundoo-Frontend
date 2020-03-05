@@ -8,8 +8,9 @@ import Login from './components/login'
 import Forgotpassword from './components/forgotpassword'
 import Dashboard from './components/dashboard'
 import ResponsePage from './components/newPage'
-import TemporaryDrawer from './components/test'
-
+//import TemporaryDrawer from './components/test'
+import PrimarySearchAppBar from './components/AppBar'
+import TemporaryDrawer from './components/sideBar'
 // import "./App.css";
 
 
@@ -33,6 +34,9 @@ class App  extends React.Component{
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/newpage" component={ResponsePage}/>
         <Route path="/test" component={TemporaryDrawer}/>
+        <Route path="/AppBar" component={PrimarySearchAppBar}/>
+        <Route path="/sideBar" component={TemporaryDrawer}/>
+        
 
         </Switch>
         </Router>

@@ -281,3 +281,4 @@ export default function PrimarySearchAppBar(props) {
                         <div className={classes.sectionDesktop}>
                         <IconButton aria-label="show 4 new mails" color="inherit">
                         <RefreshIcon style={{ color: '#424242', paddingBottom: '65%' }} />
+                        </IconButton>

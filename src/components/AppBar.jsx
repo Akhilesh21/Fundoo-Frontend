@@ -278,3 +278,4 @@ export default function PrimarySearchAppBar(props) {
                         </Grid>
                         <Grid style={{ marginLeft: '595px' }}>
                         <div className={classes.grow} />
+                        <div className={classes.sectionDesktop}>

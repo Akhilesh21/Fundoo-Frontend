@@ -13,22 +13,26 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import { Grid } from '@material-ui/core';
+import { Grid, TextField } from '@material-ui/core';
+import RefreshIcon from '@material-ui/icons/Refresh';
+import SettingsIcon from '@material-ui/icons/Settings';
+import AppsIcon from '@material-ui/icons/Apps';
+import AppsTwoToneIcon from '@material-ui/icons/AppsTwoTone';
 import clsx from "clsx";
 
 
 
 const drawerWidth = 244;
+
 const useStyles = makeStyles(theme => ({
     root: {
-        display:"flex"  
+        display: "flex"
     },
-        
-        appBar : {
-            transition: theme.transitions.create(["margin", "width"], {
-                easing: theme.transitions.easing.sharp,
-                duration: theme.transitions.duration.leavingScreen
+
+    appBar: {
+        transition: theme.transitions.create(["margin", "width"], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen
         })
     },
     appBarShift: {
@@ -48,7 +52,7 @@ const useStyles = makeStyles(theme => ({
         top: "79px",
         width: drawerWidth
     },
-      
+
     drawerHeader: {
         display: "flex",
         alignItems: "center",
@@ -95,8 +99,7 @@ const useStyles = makeStyles(theme => ({
             backgroundColor: fade(theme.palette.common.white, 0.25),
         },
         marginRight: theme.spacing(2),
-        marginLeft: 0,
-        width: '100%',
+        width: '50%',
         [theme.breakpoints.up('sm')]: {
             marginLeft: theme.spacing(3),
             width: 'auto',
@@ -160,6 +163,9 @@ export default function PrimarySearchAppBar(props) {
         handleMobileMenuClose();
     };
 
+    const handleSignout = () => {
+
+    }
 
 
     const handleMobileMenuOpen = event => {
@@ -194,7 +200,7 @@ export default function PrimarySearchAppBar(props) {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-             <MenuItem>
+            <MenuItem>
                 <IconButton aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="secondary">
                         <MailIcon />
@@ -226,74 +232,85 @@ export default function PrimarySearchAppBar(props) {
 
     return (
         <Grid>
-        <div className={classes.root}>
-            <AppBar position="fixed" className={classes.palette}>
-                <Toolbar>
-                    <IconButton
-                        edge="start"
-                        className={classes.menuButton}
-                        color="inherit"
-                        aria-label="open drawer"
-                        className={clsx(classes.menuButton, open)}
-                        onClick={props.handleDraweropen}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography className={classes.title} variant="h6" noWrap>
-                        Material-UI
-          </Typography>
-                    <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
-                        </div>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </div>
-                    <div className={classes.grow} />
-                    <div className={classes.sectionDesktop}>
-                        <IconButton aria-label="show 4 new mails" color="inherit">
-                            <Badge badgeContent={4} color="secondary">
-                                <MailIcon />
-                            </Badge>
-                        </IconButton>
-                        <IconButton aria-label="show 17 new notifications" color="inherit">
-                            <Badge badgeContent={17} color="secondary">
-                                <NotificationsIcon />
-                            </Badge>
-                        </IconButton>
-                        <IconButton
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
-                            color="inherit"
-                        >
-                            <AccountCircle />
-                        </IconButton>
-                    </div>
-                    <div className={classes.sectionMobile}>
-                        <IconButton
-                            aria-label="show more"
-                            aria-controls={mobileMenuId}
-                            aria-haspopup="true"
-                            onClick={handleMobileMenuOpen}
-                            color="inherit"
-                        >
-                            <MoreIcon />
-                        </IconButton>
-                    </div>
-                </Toolbar>
-            </AppBar>
-            {renderMobileMenu}
-            {renderMenu}
+            <div className={classes.root}>
+                <AppBar position="fixed" className={classes.palette}>
+
+                    <Toolbar>
+                        <Grid item xs={1} style={{ marginTop: '-15px',marginLeft: '10px' }}>
+
+                            <IconButton
+                                edge="start"
+                                className={classes.menuButton}
+                                color="inherit"
+                                aria-label="open drawer"
+                                className={clsx(classes.menuButton, open)}
+                                onClick={props.handleDraweropen}
+                            >
+                                <MenuIcon style={{ color: '#424242' }} />
+                            </IconButton>
+                        </ Grid>
+                        <Grid item xs={1} style={{
+                            marginLeft: '-70px',
+                            marginTop: '5px'
+                        }}>
+                            <div>
+                                <img src={"https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"} alt="Logo" />
+                            </div>
+                        </Grid>
+                        <Grid style={{
+                            marginLeft: '-60px',
+                            marginBottom: '-8px'
+                        }}>
+
+                            <Typography style={{ color: '#616161', fontSize: '150%' ,marginLeft: '40px',marginTop: '-8px' }} className={classes.title} variant="h6" noWrap>
+                                Fundoo</Typography>
+
+                        </Grid>
+                        <Grid style={{ marginLeft: '15px',marginTop: '9px' }}>
+                            <div className={classes.search}>
+                                <div className={classes.searchIcon}>
+                                    <SearchIcon style={{ paddingRight: '50%'}} />
+                                </div>
+                                <InputBase className="input-text"
+                                    type="searchIcon"
+                                    placeholder="Search" />
+                            </div>
+                        </Grid>
+                        <Grid style={{ marginLeft: '595px' }}>
+                            <div className={classes.grow} />
+                            <div className={classes.sectionDesktop}>
+                                <IconButton aria-label="show 4 new mails" color="inherit">
+
+                                    <RefreshIcon style={{ color: '#424242', paddingBottom: '65%' }} />
+                                </IconButton>
+
+                                <IconButton aria-label="show 17 new notifications" color="inherit">
+                                    <SettingsIcon style={{ color: '#424242', paddingBottom: '65%' }} />
+                                </IconButton>
+
+                                <IconButton>
+                                <AppsTwoToneIcon style={{ color: '#424242', paddingBottom: '65%' }} />
+                                </IconButton>
+
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    aria-controls={menuId}
+                                    aria-haspopup="true"
+                                    onClick={handleProfileMenuOpen}
+                                    color="inherit"
+                                >
+                                    <AccountCircle style={{ color: '#424242', paddingBottom: '65%' }} />
+                                </IconButton>
+                               
+                            </div>
+                        </Grid>
+                        
+                    </Toolbar>
+                </AppBar>
+                {renderMobileMenu}
+                {renderMenu}
             </div>
-            </Grid>
+        </Grid>
     );
 }

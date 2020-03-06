@@ -279,3 +279,4 @@ export default function PrimarySearchAppBar(props) {
                         <Grid style={{ marginLeft: '595px' }}>
                         <div className={classes.grow} />
                         <div className={classes.sectionDesktop}>
+                        <IconButton aria-label="show 4 new mails" color="inherit">

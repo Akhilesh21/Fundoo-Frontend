@@ -282,3 +282,7 @@ export default function PrimarySearchAppBar(props) {
                         <IconButton aria-label="show 4 new mails" color="inherit">
                         <RefreshIcon style={{ color: '#424242', paddingBottom: '65%' }} />
                         </IconButton>
+
+                        <IconButton aria-label="show 17 new notifications" color="inherit">
+                            
+                        </IconButton>

@@ -35,7 +35,7 @@ class App  extends React.Component{
         <Route path="/newpage" component={ResponsePage}/>
         <Route path="/test" component={SignUp}/>               {/*  {TemporaryDrawer}/> */}
         <Route path="/AppBar" component={PrimarySearchAppBar}/>
-        <Route path="/sideBar" component={TemporaryDrawer}/>
+        {/* <Route path="/sideBar" component={TemporaryDrawer}/> */}
         
 
         </Switch>

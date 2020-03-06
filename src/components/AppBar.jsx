@@ -254,7 +254,7 @@ export default function PrimarySearchAppBar(props) {
                             marginTop: '5px'
                         }}>
                             <div>
-                                <img src={"https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"} alt="Logo" />
+                                {/* <img src={"https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"} alt="Logo" /> */}
                             </div>
                         </Grid>
                         <Grid style={{

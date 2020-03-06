@@ -14,6 +14,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { Grid } from '@material-ui/core';
+import clsx from "clsx";
 
 
 
@@ -22,11 +24,11 @@ const useStyles = makeStyles(theme => ({
     root: {
         display:"flex"  
     },
-     
-    appBar : {
-        transition: theme.transitions.create(["margin", "width"], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen
+        
+        appBar : {
+            transition: theme.transitions.create(["margin", "width"], {
+                easing: theme.transitions.easing.sharp,
+                duration: theme.transitions.duration.leavingScreen
         })
     },
     appBarShift: {
@@ -158,6 +160,8 @@ export default function PrimarySearchAppBar(props) {
         handleMobileMenuClose();
     };
 
+
+
     const handleMobileMenuOpen = event => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
@@ -175,6 +179,7 @@ export default function PrimarySearchAppBar(props) {
         >
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <MenuItem onClick={handleMenuClose}>Sign out</MenuItem>
         </Menu>
     );
 
@@ -189,7 +194,7 @@ export default function PrimarySearchAppBar(props) {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem>
+             <MenuItem>
                 <IconButton aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="secondary">
                         <MailIcon />
@@ -220,14 +225,17 @@ export default function PrimarySearchAppBar(props) {
     );
 
     return (
-        <div className={classes.grow}>
-            <AppBar position="static">
+        <Grid>
+        <div className={classes.root}>
+            <AppBar position="fixed" className={classes.palette}>
                 <Toolbar>
                     <IconButton
                         edge="start"
                         className={classes.menuButton}
                         color="inherit"
                         aria-label="open drawer"
+                        className={clsx(classes.menuButton, open)}
+                        onClick={props.handleDraweropen}
                     >
                         <MenuIcon />
                     </IconButton>
@@ -285,6 +293,7 @@ export default function PrimarySearchAppBar(props) {
             </AppBar>
             {renderMobileMenu}
             {renderMenu}
-        </div>
+            </div>
+            </Grid>
     );
 }

@@ -288,5 +288,5 @@ export default function PrimarySearchAppBar(props) {
                         </IconButton>
 
                         <IconButton>
-                            
+                        <AppsTwoToneIcon style={{ color: '#424242', paddingBottom: '65%' }} />
                             </IconButton>

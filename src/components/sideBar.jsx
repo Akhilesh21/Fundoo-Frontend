@@ -17,3 +17,6 @@ import AddAlertIcon from '@material-ui/icons/AddAlert';
 
 const drawerWidth = 244;
 const useStyles = makeStyles(theme => ({
+    root: {
+        display: "flex"
+    },

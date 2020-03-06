@@ -254,7 +254,7 @@ export default function PrimarySearchAppBar(props) {
                             marginTop: '5px'
                         }}>
                             <div>
-                                {/* <img src={"https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"} alt="Logo" /> */}
+                                <img src={"https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"} alt="Logo" />
                             </div>
                         </Grid>
                         <Grid style={{
@@ -277,40 +277,3 @@ export default function PrimarySearchAppBar(props) {
                             </div>
                         </Grid>
                         <Grid style={{ marginLeft: '595px' }}>
-                            <div className={classes.grow} />
-                            <div className={classes.sectionDesktop}>
-                                <IconButton aria-label="show 4 new mails" color="inherit">
-
-                                    <RefreshIcon style={{ color: '#424242', paddingBottom: '65%' }} />
-                                </IconButton>
-
-                                <IconButton aria-label="show 17 new notifications" color="inherit">
-                                    <SettingsIcon style={{ color: '#424242', paddingBottom: '65%' }} />
-                                </IconButton>
-
-                                <IconButton>
-                                <AppsTwoToneIcon style={{ color: '#424242', paddingBottom: '65%' }} />
-                                </IconButton>
-
-                                <IconButton
-                                    edge="end"
-                                    aria-label="account of current user"
-                                    aria-controls={menuId}
-                                    aria-haspopup="true"
-                                    onClick={handleProfileMenuOpen}
-                                    color="inherit"
-                                >
-                                    <AccountCircle style={{ color: '#424242', paddingBottom: '65%' }} />
-                                </IconButton>
-                               
-                            </div>
-                        </Grid>
-                        
-                    </Toolbar>
-                </AppBar>
-                {renderMobileMenu}
-                {renderMenu}
-            </div>
-        </Grid>
-    );
-}

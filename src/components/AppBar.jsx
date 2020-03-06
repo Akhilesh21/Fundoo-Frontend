@@ -236,7 +236,7 @@ export default function PrimarySearchAppBar(props) {
                 <AppBar position="fixed" className={classes.palette}>
 
                     <Toolbar>
-                        <Grid item xs={1} style={{ marginTop: '-15px',marginLeft: '10px' }}>
+                        <Grid item xs={1} style={{ marginTop: '-15px', marginLeft: '10px' }}>
 
                             <IconButton
                                 edge="start"
@@ -262,14 +262,14 @@ export default function PrimarySearchAppBar(props) {
                             marginBottom: '-8px'
                         }}>
 
-                            <Typography style={{ color: '#616161', fontSize: '150%' ,marginLeft: '40px',marginTop: '-8px' }} className={classes.title} variant="h6" noWrap>
+                            <Typography style={{ color: '#616161', fontSize: '150%', marginLeft: '40px', marginTop: '-8px' }} className={classes.title} variant="h6" noWrap>
                                 Fundoo</Typography>
 
                         </Grid>
-                        <Grid style={{ marginLeft: '15px',marginTop: '9px' }}>
+                        <Grid style={{ marginLeft: '15px', marginTop: '9px' }}>
                             <div className={classes.search}>
                                 <div className={classes.searchIcon}>
-                                    <SearchIcon style={{ paddingRight: '50%'}} />
+                                    <SearchIcon style={{ paddingRight: '50%' }} />
                                 </div>
                                 <InputBase className="input-text"
                                     type="searchIcon"
@@ -277,22 +277,39 @@ export default function PrimarySearchAppBar(props) {
                             </div>
                         </Grid>
                         <Grid style={{ marginLeft: '595px' }}>
-                        <div className={classes.grow} />
-                        <div className={classes.sectionDesktop}>
-                        <IconButton aria-label="show 4 new mails" color="inherit">
-                        <RefreshIcon style={{ color: '#424242', paddingBottom: '65%' }} />
-                        </IconButton>
-
-                        <IconButton aria-label="show 17 new notifications" color="inherit">
-                        <SettingsIcon style={{ color: '#424242', paddingBottom: '65%' }} />
-                        </IconButton>
-
-                        <IconButton>
-                        <AppsTwoToneIcon style={{ color: '#424242', paddingBottom: '65%' }} />
-                            </IconButton>
-                            
-                            <IconButton
-                            edge="end"
-                            aria-label="account of current user">
-
+                            <div className={classes.grow} />
+                            <div className={classes.sectionDesktop}>
+                                <IconButton aria-label="show 4 new mails" color="inherit">
+                                    <RefreshIcon style={{ color: '#424242', paddingBottom: '65%' }} />
                                 </IconButton>
+
+                                <IconButton aria-label="show 17 new notifications" color="inherit">
+                                    <SettingsIcon style={{ color: '#424242', paddingBottom: '65%' }} />
+                                </IconButton>
+
+                                <IconButton>
+                                    <AppsTwoToneIcon style={{ color: '#424242', paddingBottom: '65%' }} />
+                                </IconButton>
+
+                                <IconButton
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    aria-controls={menuId}
+                                    aria-haspopup="true"
+                                    onClick={handleProfileMenuOpen}
+                                    color="inherit"
+                                >
+                                    <AccountCircle style={{ color: '#424242', paddingBottom: '65%' }} />
+                                </IconButton>
+
+                            </div>
+                        </Grid>
+
+                    </Toolbar>
+                </AppBar>
+                {renderMobileMenu}
+                {renderMenu}
+            </div>
+        </Grid>
+    );
+}

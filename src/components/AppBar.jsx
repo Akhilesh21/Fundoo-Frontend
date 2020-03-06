@@ -277,3 +277,4 @@ export default function PrimarySearchAppBar(props) {
                             </div>
                         </Grid>
                         <Grid style={{ marginLeft: '595px' }}>
+                        <div className={classes.grow} />

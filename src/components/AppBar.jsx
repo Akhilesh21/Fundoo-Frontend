@@ -292,6 +292,7 @@ export default function PrimarySearchAppBar(props) {
                             </IconButton>
                             
                             <IconButton
-                            edge="end">
+                            edge="end"
+                            aria-label="account of current user">
 
                                 </IconButton>

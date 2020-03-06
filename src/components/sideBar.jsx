@@ -26,3 +26,9 @@ const useStyles = makeStyles(theme => ({
             duration: theme.transitions.duration.leavingScreen
         })
     },
+    appBarShift: {
+        transition: theme.transitions.create(["margin", "width"], {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen
+        })
+    },

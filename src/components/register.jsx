@@ -7,7 +7,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import TextField from "@material-ui/core/TextField";
 import './User.css'
 import { register } from "../Controller/UserController";
-
+import Alert from '@material-ui/lab/Alert'
 
 
 const useStyles = makeStyles(theme => ({
@@ -196,7 +196,7 @@ checkPassword(){
       register(formaData).then(response => {
 
         if (response.status === 200) {
-                   this.setState({ snackbarOpen: true, snackbarMessage: response.statusText })
+        this.setState({ snackbarOpen: true, snackbarMessage: response.statusText })
         // this.props.history.push('/login')
         setTimeout(()=>{
           this.props.history.push('/login')
@@ -262,7 +262,15 @@ checkPassword(){
                       <CloseIcon />
                     </IconButton>
                 }
-                message={<span id="message-id"> {this.state.snackbarMessage} </span>}>
+  message={<span id="message-id"> {this.state.snackbarMessage} </span>}>
+                 <Alert
+                   
+                onClose={this.handleCloseSnackbar}  
+                severity={this.state.alertMsgType}
+                >
+                {this.state.snackbarMessage}
+              
+                </Alert>       
               </Snackbar>
 
 

@@ -145,11 +145,13 @@ export default function SideNavBar(props){
 
      </List>
 
-<List onClick={props.handleRemindersMenu}>
-<ListItem style={{ marginTop: '-6%' }} button key="Reminders">
-<ListItemIcon
+        <List onClick={props.handleRemindersMenu}>
+        <ListItem style={{ marginTop: '-6%' }} button key="Reminders">
+            <ListItemIcon
    style={{ paddingTop: '2%', fontWeight: 'bolder', marginBottom: '-2%', marginRight: '59%' }}>
- <NotificationsOutlinedIcon style={{ marginTop: '-15%' }} />
+     <NotificationsOutlinedIcon style={{ marginTop: '-15%' }} />
+     </ListItemIcon>
+    <ListItemText style={{ width: '100%', marginLeft: '-59%' }} >Reminders</ListItemText>
 
 </ListItem>
 

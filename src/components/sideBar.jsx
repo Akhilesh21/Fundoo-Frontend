@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
+import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import { useTheme } from "@material-ui/core/styles";
+import clsx from "clsx";
+import NotesIcon from '@material-ui/icons/Notes';
+import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
+import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
-import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
-import AddAlertIcon from '@material-ui/icons/AddAlert';
-
+import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 
 const drawerWidth = 244;
 
@@ -37,12 +37,10 @@ const useStyles = makeStyles(theme => ({
     hide: {
         display: "none"
     },
-
     drawer: {
         width: drawerWidth,
         flexShrink: 0
     },
-
     drawerPaper: {
         top: "64px",
         width: drawerWidth
@@ -117,9 +115,13 @@ const useStyles = makeStyles(theme => ({
         },
     },
 }));
-
 export default function SideNavBar(props) {
     const classes = useStyles();
+    // const [remindersOpen, setRemindersOpen] = useState(false);
+    // const [labelsOpen, setLabelsOpen] = useState(false);
+    // const [archiveOpen, setArchiveOpen] = useState(false);
+    // const [trashOpen, setTrashOpen] = useState(false);
+
 
     return (
         <Drawer
@@ -127,34 +129,73 @@ export default function SideNavBar(props) {
             className={classes.drawer}
             variant="persistent"
             anchor="left"
-            open={props.show}
+            open
+         //   open={props.show}
             classes={{
                 paper: classes.drawerPaper
             }}
             style={{ display: 'flex', flexDirection: 'column' }}
         >
+            <Divider />
+
+            <List onClick={props.handleNotesMenu}>
+
+                <ListItem style={{ marginTop: '-2%' }} button key="Notes">
+                    <ListItemIcon style={{ paddingTop: '2%', fontWeight: 'bolder', marginBottom: '-2%', marginRight: '59%' }}>
+                        <NotesIcon /> <ListItemText style={{ paddingLeft: '50%', paddingBottom: '2%', fontFamily: 'Arial', fontWeight: 'bolder', color: '#212121', marginBottom: '12%', fontSizeAdjust: 'inherit' }} >Notes</ListItemText>
+                    </ListItemIcon>
+                </ListItem>
+
+            </List>
+
+
+
+
+
+            <List onClick={props.handleRemindersMenu}>
+                <ListItem style={{ marginTop: '-6%' }} button key="Reminders">
+                    <ListItemIcon
+                        style={{ paddingTop: '2%', fontWeight: 'bolder', marginBottom: '-2%', marginRight: '59%' }}>
+                        <NotificationsOutlinedIcon style={{ marginTop: '-15%' }} />
+                    </ListItemIcon>
+                    <ListItemText style={{ width: '100%', marginLeft: '-59%' }} >Reminders</ListItemText>
+
+                </ListItem>
+
+            </List>
+            <Divider />
+            <List>
+                <h5 style={{ fontWeight: '20', paddingRight: '64%', marginTop: '5%' }}>LABELS</h5>
+                <ListItem style={{ marginTop: '-6%' }} button key="Edit Labels">
+                    <ListItemIcon className style={{ paddingTop: '-2%', fontWeight: 'bolder', marginBottom: '0.9%' }}>
+                        <EditOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText style={{ width: '100%' }} >Edit Labels</ListItemText>
+                </ListItem>
+
+            </List>
+
+            <Divider />
+            <List>
+                <ListItem style={{ marginTop: '-1%' }} button key="Archive">
+                    <ListItemIcon className style={{ paddingTop: '-2%', fontWeight: 'bolder', marginBottom: '-2%', marginRight: '59%' }}>
+                        <ArchiveOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText style={{ width: '100%', marginLeft: '-59%', marginTop: '4%' }} >Archive</ListItemText>
+                </ListItem>
+
+            </List>
+            <List>
+                <ListItem style={{ marginTop: '-6%' }} button key="Trash">
+                    <ListItemIcon className style={{ paddingTop: '-2%', fontWeight: 'bolder', marginBottom: '-2%', marginRight: '59%' }}>
+                        <DeleteOutlineIcon />
+                    </ListItemIcon>
+                    <ListItemText style={{ width: '100%', marginLeft: '-59%', marginTop: '4%' }} >Trash</ListItemText>
+                </ListItem>
+
+            </List>
+
+
         </Drawer>
-
-        <List onClick={props.handleNotesMenu}>
-
-            <ListItem style={{ marginTop: '-2%' }} button key="Notes">
-                <ListItemIcon style={{ paddingTop: '2%', fontWeight: 'bolder', marginBottom: '-2%', marginRight: '59%' }}>
-                    <NotesIcon /> <ListItemText style={{ paddingLeft: '50%', paddingBottom: '2%', fontFamily: 'Arial', fontWeight: 'bolder', color: '#212121', marginBottom: '12%', fontSizeAdjust: 'inherit' }} >Notes</ListItemText>
-                </ListItemIcon>
-            </ListItem>
-
-        </List>
-
-        <List onClick={props.handleRemindersMenu}>
-            <ListItem style={{ marginTop: '-6%' }} button key="Reminders">
-                <ListItemIcon
-                    style={{ paddingTop: '2%', fontWeight: 'bolder', marginBottom: '-2%', marginRight: '59%' }}>
-                    <NotificationsOutlinedIcon style={{ marginTop: '-15%' }} />
-                </ListItemIcon>
-                <ListItemText style={{ width: '100%', marginLeft: '-59%' }} >Reminders</ListItemText>
-
-            </ListItem>
-        </List>
-
     )
 }

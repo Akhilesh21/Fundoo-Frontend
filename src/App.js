@@ -10,7 +10,7 @@ import Dashboard from './components/dashboard'
 import ResponsePage from './components/newPage'
 import SignUp from './components/test'
 import PrimarySearchAppBar from './components/AppBar'
-import TemporaryDrawer from './components/sideBar'
+import SideNavBar from './components/sideBar'
 // import "./App.css";
 
 
@@ -35,7 +35,7 @@ class App  extends React.Component{
         <Route path="/newpage" component={ResponsePage}/>
         <Route path="/test" component={SignUp}/>               {/*  {TemporaryDrawer}/> */}
         <Route path="/AppBar" component={PrimarySearchAppBar}/>
-        <Route path="/sideBar" component={TemporaryDrawer}/> 
+        <Route path="/sideBar" component={SideNavBar}/> 
         
 
         </Switch>

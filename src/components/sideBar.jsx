@@ -126,5 +126,10 @@ export default function SideNavBar(props){
         position="fixed"
         className={classes.drawer}
         variant="persistent"
+        anchor="left"
+            open={props.show}
+            classes={{
+                paper: classes.drawerPaper
+            }}
     )
 }

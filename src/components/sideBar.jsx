@@ -121,5 +121,10 @@ const useStyles = makeStyles(theme => ({
 export default function SideNavBar(props){
     const classes = useStyles();
 
-    
+    return(
+        <Drawer
+        position="fixed"
+        className={classes.drawer}
+        variant="persistent"
+    )
 }

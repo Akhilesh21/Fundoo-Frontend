@@ -131,5 +131,9 @@ export default function SideNavBar(props){
             classes={{
                 paper: classes.drawerPaper
             }}
+            style={{ display: 'flex', flexDirection: 'column' }}
+            >
+                
+            </Drawer>
     )
 }

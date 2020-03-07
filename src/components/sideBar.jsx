@@ -145,5 +145,10 @@ export default function SideNavBar(props){
 
      </List>
 
+<List onClick={props.handleRemindersMenu}>
+
+
+</ListItem>
+
     )
 }

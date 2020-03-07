@@ -33,12 +33,12 @@ const useStyles = makeStyles(theme => ({
             duration: theme.transitions.duration.enteringScreen
         })
     },
-     
-    hide:{
-    display: "none"        
+
+    hide: {
+        display: "none"
     },
-     
-    drawer:{
+
+    drawer: {
         width: drawerWidth,
         flexShrink: 0
     },
@@ -118,42 +118,43 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function SideNavBar(props){
+export default function SideNavBar(props) {
     const classes = useStyles();
 
-    return(
+    return (
         <Drawer
-        position="fixed"
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
+            position="fixed"
+            className={classes.drawer}
+            variant="persistent"
+            anchor="left"
             open={props.show}
             classes={{
                 paper: classes.drawerPaper
             }}
             style={{ display: 'flex', flexDirection: 'column' }}
-            >
-            </Drawer>
+        >
+        </Drawer>
 
-            <List onClick={props.handleNotesMenu}>
+        <List onClick={props.handleNotesMenu}>
 
-         <ListItem style={{ marginTop: '-2%' }} button key="Notes">
-             <ListItemIcon style={{ paddingTop: '2%', fontWeight: 'bolder', marginBottom: '-2%', marginRight: '59%' }}>
-                 <NotesIcon /> <ListItemText style={{ paddingLeft: '50%', paddingBottom: '2%', fontFamily: 'Arial', fontWeight: 			'bolder', color: '#212121', marginBottom: '12%', fontSizeAdjust: 'inherit' }} >Notes</ListItemText>
-             </ListItemIcon>
-         </ListItem>
+            <ListItem style={{ marginTop: '-2%' }} button key="Notes">
+                <ListItemIcon style={{ paddingTop: '2%', fontWeight: 'bolder', marginBottom: '-2%', marginRight: '59%' }}>
+                    <NotesIcon /> <ListItemText style={{ paddingLeft: '50%', paddingBottom: '2%', fontFamily: 'Arial', fontWeight: 'bolder', color: '#212121', marginBottom: '12%', fontSizeAdjust: 'inherit' }} >Notes</ListItemText>
+                </ListItemIcon>
+            </ListItem>
 
-     </List>
+        </List>
 
         <List onClick={props.handleRemindersMenu}>
-        <ListItem style={{ marginTop: '-6%' }} button key="Reminders">
-            <ListItemIcon
-   style={{ paddingTop: '2%', fontWeight: 'bolder', marginBottom: '-2%', marginRight: '59%' }}>
-     <NotificationsOutlinedIcon style={{ marginTop: '-15%' }} />
-     </ListItemIcon>
-    <ListItemText style={{ width: '100%', marginLeft: '-59%' }} >Reminders</ListItemText>
+            <ListItem style={{ marginTop: '-6%' }} button key="Reminders">
+                <ListItemIcon
+                    style={{ paddingTop: '2%', fontWeight: 'bolder', marginBottom: '-2%', marginRight: '59%' }}>
+                    <NotificationsOutlinedIcon style={{ marginTop: '-15%' }} />
+                </ListItemIcon>
+                <ListItemText style={{ width: '100%', marginLeft: '-59%' }} >Reminders</ListItemText>
 
-</ListItem>
+            </ListItem>
+        </List>
 
     )
 }

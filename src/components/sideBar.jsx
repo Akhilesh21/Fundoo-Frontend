@@ -133,7 +133,17 @@ export default function SideNavBar(props){
             }}
             style={{ display: 'flex', flexDirection: 'column' }}
             >
-                
             </Drawer>
+
+            <List onClick={props.handleNotesMenu}>
+
+         <ListItem style={{ marginTop: '-2%' }} button key="Notes">
+             <ListItemIcon style={{ paddingTop: '2%', fontWeight: 'bolder', marginBottom: '-2%', marginRight: '59%' }}>
+                 <NotesIcon /> <ListItemText style={{ paddingLeft: '50%', paddingBottom: '2%', fontFamily: 'Arial', fontWeight: 			'bolder', color: '#212121', marginBottom: '12%', fontSizeAdjust: 'inherit' }} >Notes</ListItemText>
+             </ListItemIcon>
+         </ListItem>
+
+     </List>
+
     )
 }

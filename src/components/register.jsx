@@ -7,7 +7,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import TextField from "@material-ui/core/TextField";
 import './User.css'
 import { register } from "../Controller/UserController";
-import Alert from '@material-ui/lab/Alert'
+//import Alert from '@material-ui/lab/Alert'
 
 
 const useStyles = makeStyles(theme => ({
@@ -225,8 +225,8 @@ checkPassword(){
 
     return (
       <div className="card_style" style={{
-        backgroundImage: 'url()',
-         backgroundSize: '100% 100%'
+          backgroundImage: 'url(https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252__340.jpg)',
+         backgroundSize: '30000% 20000%'
       }}>
         
       <Card style={{
@@ -262,15 +262,8 @@ checkPassword(){
                       <CloseIcon />
                     </IconButton>
                 }
-  message={<span id="message-id"> {this.state.snackbarMessage} </span>}>
-                 <Alert
-                   
-                onClose={this.handleCloseSnackbar}  
-                severity={this.state.alertMsgType}
-                >
-                {this.state.snackbarMessage}
-              
-                </Alert>       
+             message={<span id="message-id"> {this.state.snackbarMessage} </span>}>
+                
               </Snackbar>
 
 

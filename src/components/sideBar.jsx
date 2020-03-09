@@ -113,24 +113,19 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.up('md')]: {
             display: 'none',
         },
-    },
+    }, 
 }));
 export default function SideNavBar(props) {
     const classes = useStyles();
-    // const [remindersOpen, setRemindersOpen] = useState(false);
-    // const [labelsOpen, setLabelsOpen] = useState(false);
-    // const [archiveOpen, setArchiveOpen] = useState(false);
-    // const [trashOpen, setTrashOpen] = useState(false);
-
-
+    
     return (
         <Drawer
             position="fixed"
             className={classes.drawer}
             variant="persistent"
             anchor="left"
-            open
-         //   open={props.show}
+         //   open
+                                                                                                                               //   open={props.show}
             classes={{
                 paper: classes.drawerPaper
             }}

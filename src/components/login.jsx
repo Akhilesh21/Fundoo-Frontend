@@ -92,11 +92,7 @@ class Login extends Component {
     };  
 
 
-    onSubmit = () => {
-
-
-        // this.props.history.push('/welcome page')
-        
+    onSubmit = () => {  
         if (this.state.Email === "") {
             console.log("email is empty")
             this.setState({ snackbarOpen: true, snackbarMessage: "Enter email" })
@@ -104,15 +100,12 @@ class Login extends Component {
             console.log("password is empty")
             this.setState({ snackbarOpen: true, snackbarMessage: "Enter password" })
         }
-
         else {
             let formaData = new FormData()
             formaData.append('email', this.state.Email)
             formaData.append('password', this.state.Password)
 
-
             var loginDetails = {
-
                 email: this.state.Email,
                 password: this.state.Password,
             }

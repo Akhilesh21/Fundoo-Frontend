@@ -124,8 +124,8 @@ export default function SideNavBar(props) {
             className={classes.drawer}
             variant="persistent"
             anchor="left"
-         //   open
-                                                                                                                               //   open={props.show}
+       //  open
+       open={props.show}
             classes={{
                 paper: classes.drawerPaper
             }}

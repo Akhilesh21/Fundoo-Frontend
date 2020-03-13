@@ -11,6 +11,8 @@ import ResponsePage from './components/newPage'
 import SignUp from './components/test'
 import PrimarySearchAppBar from './components/AppBar'
 import SideNavBar from './components/sideBar'
+import SignIn from './components/test'
+
 // import "./App.css";
 
 
@@ -33,9 +35,10 @@ class App  extends React.Component{
         <Route path="/forgot" component={Forgotpassword}/>
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/newpage" component={ResponsePage}/>
-        <Route path="/test" component={SignUp}/>               {/*  {TemporaryDrawer}/> */}
         <Route path="/AppBar" component={PrimarySearchAppBar}/>
-        <Route path="/sideBar" component={SideNavBar}/> 
+        <Route path="/sideBar" component={SideNavBar}/>
+        <Route path="/test" component={SignIn}/> 
+
         
 
         </Switch>

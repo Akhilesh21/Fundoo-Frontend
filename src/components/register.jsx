@@ -35,10 +35,7 @@ class Registration extends Component {
       Passwordagain: "",
       snackbarOpen: false,
       snackbarMessage: '',
-     
       error: false,
-      err1: false,
-      err2: false,
       message: ""
     };
   }
@@ -51,19 +48,6 @@ class Registration extends Component {
   }
 
 
-  helpermailMethod = () => {
-    if (this.state.err1) {
-      return "Not a valid mail id"
-    }
-  }
-
-
-  helperfnamemethod = () => {
-    if (this.state.err2) {
-      return "Not a valid name"
-    }
-  }
-
   SnackbarClose = (e) => {
      this.setState({ snackbarOpen: false})
      }
@@ -73,21 +57,14 @@ class Registration extends Component {
      }
 
    onchangeEmail =  event => {
-      // await this.setState({ Email: event.target.value });
-  
-      if (event.target.value.match("!/[a-z0-9._%+-]+@[a-z][0-9,-]+.[a-z]{2,3}$/") == null) {
+        if (event.target.value.match("!/[a-z0-9._%+-]+@[a-z][0-9,-]+.[a-z]{2,3}$/") == null) {
         console.log("on click function is working", event.target.value)
-        
         this.setState({ Email: event.target.value });
         this.setState({ snackbarOpen: true, snackbarMessage: "enter proper email" });
-
-      
       }
-      else {
-        
+      else {  
         console.log("on click function is working", event.target.value)
-        
-      }
+}
     };
   
 
@@ -96,15 +73,12 @@ class Registration extends Component {
   onchangeFirstname = event => {
     if (event.target.value.match("^[a-zA-Z]*$") != null) {
       console.log("on click function is working", event.target.value)
-
-      this.setState({ Firstname: event.target.value });
+       this.setState({ Firstname: event.target.value });
     }
     else {
       console.log("on click function is not working", event.target.value)
-
       this.setState({ snackbarOpen: true, snackbarMessage: "first name should contain characters" })
-
-    }
+      }
   };
  
 
@@ -112,7 +86,6 @@ class Registration extends Component {
     if (event.target.value.match("^[a-zA-Z]*$") != null) {
       console.log("on click function is working", event.target.value)
       this.setState({ Lastname: event.target.value });
-
     }
     else {
       console.log("on click function is not working", event.target.value)
@@ -136,23 +109,20 @@ class Registration extends Component {
   
 
 
-  onchangePasswordagain =async  (event) => {
-    await this.setState({
+    onchangePasswordagain =async  (event) => {
+      await this.setState({
       Passwordagain:event.target.value
-    })
-           
-    this.checkPassword();
-  };
-checkPassword(){
-  if(this.state.Password===this.state.Passwordagain){
-    
+      })
+      this.checkPassword();
+    };
+    checkPassword(){
+    if(this.state.Password===this.state.Passwordagain){
     this.setState({ snackbarOpen: true, snackbarMessage: "done"})
-  }
-  else{
-    
+    }
+    else{
     this.setState({ snackbarOpen: true, snackbarMessage: "enter same password"})
+    }
   }
-}
 
   onSubmit = () => {
     
@@ -197,7 +167,7 @@ checkPassword(){
 
         if (response.status === 200) {
         this.setState({ snackbarOpen: true, snackbarMessage: response.statusText })
-        // this.props.history.push('/login')
+
         setTimeout(()=>{
           this.props.history.push('/login')
         },2000)
@@ -282,7 +252,6 @@ checkPassword(){
                     value={this.state.Firstname}
                     onChange={this.onchangeFirstname}
                     className={classes.paper}
-                  // helperText={this.helpermailMethod}
                   />
                 </div><br></br>
               </div>
@@ -304,7 +273,6 @@ checkPassword(){
               <div >
                 <TextField
                   required={true}
-                  error={this.state.err1}
                   id="Email"
                   label="Email"
                   variant="outlined"

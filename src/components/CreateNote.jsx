@@ -24,6 +24,7 @@ class CreateNote extends PureComponent{
               allLabels:array,
               labelpresent:true,
           })
+          console.log(this.state.allLabels)
 
     }
 }

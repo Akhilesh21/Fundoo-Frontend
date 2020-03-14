@@ -8,10 +8,10 @@ import Login from './components/login'
 import Forgotpassword from './components/forgotpassword'
 import Dashboard from './components/dashboard'
 import ResponsePage from './components/newPage'
-import SignUp from './components/test'
 import PrimarySearchAppBar from './components/AppBar'
 import SideNavBar from './components/sideBar'
-import SignIn from './components/test'
+import NoteMenu from './components/notemenu'
+import CreateNote from './components/CreateNote'
 
 // import "./App.css";
 
@@ -37,7 +37,11 @@ class App  extends React.Component{
         <Route path="/newpage" component={ResponsePage}/>
         <Route path="/AppBar" component={PrimarySearchAppBar}/>
         <Route path="/sideBar" component={SideNavBar}/>
-        <Route path="/test" component={SignIn}/> 
+        <Route path="/test" component={CreateNote}/>
+        <Route path="/notemenu" component={NoteMenu}/>
+        <Route path="/CreateNote" component={CreateNote}/>
+
+ 
 
         
 

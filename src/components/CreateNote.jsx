@@ -27,6 +27,17 @@ class CreateNote extends PureComponent{
           console.log(this.state.allLabels)
 
     }
+    handleLabelRemove = async (data) => {
+
+        array.pop(data)
+        await this.setState({
+          allLabels: array
+        })
+        console.log(this.state.allLabels)
+        if (this.state.allLabels.length === 0) {
+          this.setState({ labelpresent: false })
+        }
+      }
     MenuClose = () => {
         this.setState({ menu: false });
       };

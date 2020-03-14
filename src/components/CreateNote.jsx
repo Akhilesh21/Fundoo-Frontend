@@ -27,4 +27,7 @@ class CreateNote extends PureComponent{
           console.log(this.state.allLabels)
 
     }
+    MenuClose = () => {
+        this.setState({ menu: false });
+      };
 }

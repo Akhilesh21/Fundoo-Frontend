@@ -3,6 +3,9 @@ import Card from "@material-ui/core/Card";
 
 
 const drawerWidth = 244;
+
+const saveclose = "Save & Close";
+let array = [];
 class CreateNote extends PureComponent{
     constructor(props){
         super(props);
@@ -11,8 +14,16 @@ class CreateNote extends PureComponent{
             open : false,
             menu: false,
             openNote: false,
-            
 
+            
         }
+    }
+    handleLabel = async(data) => {
+          array.push(data)
+          await this.setState({
+              allLabels:array,
+              labelpresent:true,
+          })
+
     }
 }

@@ -110,7 +110,7 @@ class Login extends Component {
                 password: this.state.Password,
             }
             console.log(loginDetails)
-            login(formaData).then(response => {
+            login(formaData).then(response =>  { //en
       
                 if (response.status === 200) {
                     this.setState({ snackbarOpen: true, snackbarMessage: response.statusText })
@@ -118,7 +118,10 @@ class Login extends Component {
                         this.props.history.push('/dashboard')
                       },2000)
               
-                    console.log("RESPONSE :", response);
+                    console.log("RESPONSE :", response.data);
+                    // let token=response.data.token
+                    localStorage.setItem('usertoken',response.data.token)
+                    console.log("tgfvt",localStorage.getItem('usertoken'))
                 } else {
                     console.log("qwerty")
                 }

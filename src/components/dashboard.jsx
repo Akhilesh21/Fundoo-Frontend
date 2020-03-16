@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {withRouter} from 'react-router-dom'
 import AppNavBar from "./AppBar";
 import SideNavBar from "./sideBar";
+import Note from "./CreateNote";
 
 
  class Dashboard extends Component {
@@ -34,12 +35,18 @@ render()
 
             <div>
                 <AppNavBar handleDraweropen={this.handleDraweropen} />
+                
+                <Note
+                style={{ display: "flex"}}/>
+
                 </div>
 
                 <div style={{ display: "flex", background: "" }} >       
               <SideNavBar 
                 show={this.state.open}
               handleDialogOpen={this.handleDialogOpen} />
+           
+            
             </div>
         </div>
 

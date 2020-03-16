@@ -10,7 +10,7 @@ let headers = {
 export async function register(data) {
 
   let response = axios.post(process.env.REACT_APP_BASE_URL + useConstants.Register, data);
-  console.log("to check for response", response.id)
+  console.log("to check for response", response)
   return response
 }
 
@@ -20,6 +20,9 @@ export async function register(data) {
 export async function login(data) {
   let response = axios.post(process.env.REACT_APP_BASE_URL + useConstants.Login, data);
   console.log("to check for response", response.id)
+  // let token=response.id
+  // localStorage.setItem('usertoken',token)
+  // console.log("to check id",localStorage.setItem('usertoken',token))
   return response
 
 }
@@ -29,4 +32,20 @@ export async function forgotpassword(data) {
   console.log("to check for response", response.id)
   return response
 }
+
+export async function create(data) {
+  let gettingtoken = localStorage.getItem('usertoken')
+  console.log("token is comuing",gettingtoken)
+  let response = axios.post(process.env.REACT_APP_BASE_URL + useConstants.createNote, data,
+    {
+      headers:{
+        Accept:'application/json',
+        Authorization:gettingtoken
+      }
+    }
+   );
+  console.log("to check for response", response.id)
+  return response
+}
+
 

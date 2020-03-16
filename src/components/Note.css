@@ -1,10 +1,14 @@
 /*create note.css*/
-.new_card {
+ .new_card {
     display: flex;
     justify-content: center;
     margin-top: 100px;
   }
-
+  @media screen and (max-width: 600px) {
+      .new_card {
+      width: 320px;
+    }
+  }
 
 
   .create {
@@ -16,7 +20,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+    }
+    
   .create_icon {
     width: 9em;
     display: flex;
@@ -28,6 +33,15 @@
     justify-content: center;
   }
   .card1{
-      width: 32em;
-      padding: 18px;
+      width: 30em;
+      padding: 20px;
   }
+  .icons2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  

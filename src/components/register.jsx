@@ -173,7 +173,7 @@ class Registration extends Component {
           this.props.history.push('/login')
         },2000)
          
-          console.log("RESPONSE :", response);
+          console.log("RESPONSE :", response.data);
         } else {
           console.log("fgtgybhbyunyuhnjunujuju");
         }

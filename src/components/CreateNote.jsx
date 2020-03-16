@@ -154,6 +154,7 @@
 
 //export default CreateNote
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom'
 import {
   Tooltip,
   Card,
@@ -170,6 +171,7 @@ import ArchiveOutlinedIcon from "@material-ui/icons/ArchiveOutlined";
 import UndoTwoToneIcon from "@material-ui/icons/UndoTwoTone";
 import RedoTwoToneIcon from "@material-ui/icons/RedoTwoTone";
 import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
+import { create } from '../Controller/UserController'
 import './Note.css'
 
 //import SvgPin from "../icons/svgPin";
@@ -200,32 +202,51 @@ class Note extends Component {
       cardOpen: true
     });
   };
-  handleOpenPin = noteId => {
-    this.setState({ isPinned: true });
-    let data = {
-      noteId: noteId,
-      isPinned: this.state.isPinned
-    };
+  // handleOpenPin = noteId => {
+  //   this.setState({ isPinned: true });
+  //   let data = {
+  //     noteId: noteId,
+  //     isPinned: this.state.isPinned
+  //   };
     
-  };
+  // };
   handleClosePin = () => {
     this.setState({ isPinned: false });
   };
 
   newNote = () => {
-    try {
+    // try {
       if (this.state.title === "" && this.state.description === "") {
+        console.log("title and description are empty")
         this.setState({ cardOpen: false });
       } else {
-        const noteData = {
-          title: this.state.title,
-          description: this.state.description
-        };
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+        // const noteData = {
+        //   title: this.state.title,
+        //   description: this.state.description
+        // };
+        let formData = new FormData()
+        formData.append('title', this.state.title)
+        formData.append('description', this.state.description)
+        var data = {
+          title:this.state.title,
+          description:this.state.description
+        }
+        console.log(data)
+        create(data).then(response => {
+          if(response.status === 200){
+            setTimeout(()=>{
+              this.props.history.push('/dashboard')
+            },2000)
+            console.log("RESPONSE :", response);
+          }  else{
+            console.log("qwerty");
+          }   
+        })
+       .catch(err=>{
+         console.log(err);
+         
+       })
+  }}
   render() {
     return !this.state.cardOpen ? (
       <div className="new_card" onClick={this.handleOpen}>
@@ -251,7 +272,7 @@ class Note extends Component {
     ) : (
       <div>
         <div className="card_open">
-          <Card className="card1" style={{ backgroundColor: this.props.color }}>
+          <Card className="card1" style={{ backgroundColor: this.props.color ,boxShadow: "0px 0px 5px 1px"}} >
           {/* {!this.state.isPinned ? (
             <div className="unpin" onClick={this.handleOpenPin}>
               <SvgPin />
@@ -280,7 +301,9 @@ class Note extends Component {
             <div></div>
             <div className="icons2">
               <div>
+              <Tooltip title="remind me">
               <AddAlertOutlinedIcon/>
+              </Tooltip>
               </div>	
               <div>
                 <Tooltip title="Collbrate">

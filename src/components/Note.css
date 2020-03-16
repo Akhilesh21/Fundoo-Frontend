@@ -1,5 +1,5 @@
 /*create note.css*/
-.a {
+.new_card {
     display: flex;
     justify-content: center;
     margin-top: 100px;
@@ -7,8 +7,13 @@
 
 
 
-  .b {
+  .create {
     padding: 18px;
     height: 18px;
     width: 30em;
+  }
+  .create1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }

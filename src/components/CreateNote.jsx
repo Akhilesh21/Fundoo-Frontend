@@ -8,6 +8,8 @@ import {
 //import { Card, InputBase } from '@material-ui/core';
 import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
 import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
+import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
+import ImageOutlinedIcon from "@material-ui/icons/ImageOutlined";
 
 class CreateNote extends Component {
   constructor(props){
@@ -54,13 +56,26 @@ class CreateNote extends Component {
       <div></div>
       <div className="icon2">
         <div>
+        <Tooltip title="remind me">
           <AddAlertOutlinedIcon />
+          </Tooltip>
           </div>
           <div>
-            <Tooltip title="Collbrate">
+            <Tooltip title="Collborator">
                 <PersonAddOutlinedIcon/>
               </Tooltip>
             </div>
+
+            <div>
+              <Tooltip title="Add image">
+              <ImageOutlinedIcon/>
+                </Tooltip>
+              </div>
+              <div>
+                <Tooltip title="Archive">
+                  <ArchiveOutlinedIcon />
+                  </Tooltip>
+                </div>
           
         </div>
       </div>

@@ -10,25 +10,27 @@ import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
 import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import ImageOutlinedIcon from "@material-ui/icons/ImageOutlined";
+import UndoTwoToneIcon from "@material-ui/icons/UndoTwoTone";
+import RedoTwoToneIcon from '@material-ui/icons/RedoTwoTone';
 
 class CreateNote extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state= {
-      cardOpen : false,
-      anchorEl : null,
+    this.state = {
+      cardOpen: false,
+      anchorEl: null,
       title: "",
       description: "",
       color: "",
-      isPinned:false
+      isPinned: false
     };
   }
 
   openCard = () => {
-       this.setState({cardOpen:true});
+    this.setState({ cardOpen: true });
   };
   changeTilte = e => {
-    this.setState({ title: e.currentTarget.value})
+    this.setState({ title: e.currentTarget.value })
   };
 
   render() {
@@ -37,84 +39,87 @@ class CreateNote extends Component {
         <div className="card_open">
 
         </div>
-      <div>
-      <InputBase
-      multiline 
-      placeholder="Title"
-      onChange={this.changeTilte}
-      value={this.state.title}
-      />
-      </div>
-      <div>
-        <InputBase
-        multiline 
-      placeholder="take a noteeeeeeeeee.."
-      onChange={this.changeDescription}
-      value={this.state.description}
-      />  
-      </div>
-      <div></div>
-      <div className="icon2">
         <div>
-        <Tooltip title="remind me">
-          <AddAlertOutlinedIcon />
-          </Tooltip>
+          <InputBase
+            multiline
+            placeholder="Title"
+            onChange={this.changeTilte}
+            value={this.state.title}
+          />
+        </div>
+        <div>
+          <InputBase
+            multiline
+            placeholder="take a noteeeeeeeeee.."
+            onChange={this.changeDescription}
+            value={this.state.description}
+          />
+        </div>
+        <div></div>
+        <div className="icon2">
+          <div>
+            <Tooltip title="remind me">
+              <AddAlertOutlinedIcon />
+            </Tooltip>
           </div>
           <div>
             <Tooltip title="Collborator">
-                <PersonAddOutlinedIcon/>
-              </Tooltip>
-            </div>
+              <PersonAddOutlinedIcon />
+            </Tooltip>
+          </div>
 
-            <div>
-              <Tooltip title="Add image">
-              <ImageOutlinedIcon/>
-                </Tooltip>
-              </div>
-              <div>
-                <Tooltip title="Archive">
-                  <ArchiveOutlinedIcon />
-                  </Tooltip>
-                </div>
-          
+          <div>
+            <Tooltip title="Add image">
+              <ImageOutlinedIcon />
+            </Tooltip>
+          </div>
+          <div>
+            <Tooltip title="Archive">
+              <ArchiveOutlinedIcon />
+            </Tooltip>
+          </div>
+          <div className="lc"></div>
         </div>
+        <div>
+          <Tooltip title="Undo">
+            <UndoTwoToneIcon />
+          </Tooltip>
+        </div>
+        <div>
+        <Tooltip title="Redo">
+          <RedoTwoToneIcon />
+          </Tooltip>
+          </div>
       </div>
 
 
     );
   }
 }
-    
-    
-    
-    
-    
-    
-      //   <div className="a_card">
-    //     <Card className= "b_card">
-              
-    //             <div className="c_card">
-    //               <div>
-    //                 </div>
-    //             </div>
-    //     </Card>
-    //   </div>
-    // )(
-    //   <div>
-    //     <div className="a">
-    //       <Card className="b" >
-
-    //       </Card>
-    //       </div>
-    //     </div>
-    // )(
-                      
 
 
 
 
-    
-    
+
+
+//   <div className="a_card">
+//     <Card className= "b_card">
+
+//             <div className="c_card">
+//               <div>
+//                 </div>
+//             </div>
+//     </Card>
+//   </div>
+// )(
+//   <div>
+//     <div className="a">
+//       <Card className="b" >
+
+//       </Card>
+//       </div>
+//     </div>
+// )(
 
 
 
@@ -124,7 +129,14 @@ class CreateNote extends Component {
 
 
 
-    
+
+
+
+
+
+
+
+
 
 
 export default CreateNote

@@ -22,8 +22,8 @@
     display: flex;
     justify-content: space-between;
   }
-  /* .card_open {
+  .card_open {
     margin-top: 125px;
     display: flex;
     justify-content: center;
-  } */
+  }

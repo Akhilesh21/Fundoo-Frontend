@@ -272,7 +272,7 @@ class Note extends Component {
             <div>
               <InputBase
                 multiline
-                placeholder="Take a note..."
+                placeholder="Take a note...."
                 onChange={this.changeDescription}
                 value={this.state.description}
               />

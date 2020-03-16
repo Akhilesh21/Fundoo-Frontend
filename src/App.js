@@ -11,7 +11,6 @@ import ResponsePage from './components/newPage'
 import PrimarySearchAppBar from './components/AppBar'
 import SideNavBar from './components/sideBar'
 import Note from './components/CreateNote'
-import NoteMenu from './components/NoteMenu'
 import Notes from './components/test'
 
 
@@ -40,7 +39,7 @@ class App  extends React.Component{
         <Route path="/newpage" component={ResponsePage}/>
         <Route path="/AppBar" component={PrimarySearchAppBar}/>
         <Route path="/sideBar" component={SideNavBar}/>
-        <Route path="/notemenu" component={NoteMenu}/>
+      
         <Route path="/CreateNote" component={Note}/>
         <Route path="/test" component={Notes}/>
         

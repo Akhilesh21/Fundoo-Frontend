@@ -18,9 +18,9 @@ class CreateNote extends Component {
   openCard = () => {
        this.setState({cardOpen:true});
   };
-  changeTilte = e = {
+  changeTilte = e => {
     this.setState({ title: e.currentTarget.value})
-  }
+  };
 
   render() {
     return (
@@ -29,13 +29,21 @@ class CreateNote extends Component {
       multiline 
       placeholder="Title"
       onChange={this.changeTilte}
-      value=this.state.title
+      value={this.state.title}
       />
+      </div>
+      <div>
+        <InputBase
+      multiline 
+      placeholder="take a noteeeeeeeeee.."
+      onChange={this.changeDescription}
+      value={this.state.description}
+      />  
       </div>
 
 
     )
-
+    
     
     
     

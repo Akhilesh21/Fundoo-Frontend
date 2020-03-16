@@ -143,6 +143,7 @@ class Registration extends Component {
       console.log("requires same password")
     }
 
+    
     else {
       let formaData = new FormData()
       formaData.append('fname', this.state.Firstname)

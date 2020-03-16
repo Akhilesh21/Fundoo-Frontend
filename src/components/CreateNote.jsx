@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Card, InputBase } from '@material-ui/core';
+import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
 
 
 class CreateNote extends Component {
@@ -26,7 +27,7 @@ class CreateNote extends Component {
     return (
       <div>
         <div className="card_open">
-          
+
         </div>
       <div>
       <InputBase
@@ -44,6 +45,13 @@ class CreateNote extends Component {
       value={this.state.description}
       />  
       </div>
+      <div></div>
+      <div className="icon2">
+        <div>
+          <AddAlertOutlinedIcon />
+          </div>
+          
+        </div>
       </div>
 
 

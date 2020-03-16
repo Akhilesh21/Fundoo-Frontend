@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card } from '@material-ui/core';
+import { Card, InputBase } from '@material-ui/core';
 
 
 class CreateNote extends Component {
@@ -18,38 +18,54 @@ class CreateNote extends Component {
   openCard = () => {
        this.setState({cardOpen:true});
   };
+  changeTilte = e = {
+    this.setState({ title: e.currentTarget.value})
+  }
 
   render() {
     return (
-      <div className="a_card">
-        <Card className= "b_card">
-              
-                <div className="c_card">
-                  <div>
-                    </div>
-                </div>
-        </Card>
-      </div>
-    )(
       <div>
-        <div className="a">
-          <Card className="b" >
+      <InputBase
+      multiline 
+      placeholder="Title"
+      onChange={this.changeTilte}
+      value=this.state.title
+      />
+      </div>
 
-          </Card>
-          </div>
-        </div>
-    )(
+
+    )
+
+    
+    
+    
+    
+    
+      //   <div className="a_card">
+    //     <Card className= "b_card">
+              
+    //             <div className="c_card">
+    //               <div>
+    //                 </div>
+    //             </div>
+    //     </Card>
+    //   </div>
+    // )(
+    //   <div>
+    //     <div className="a">
+    //       <Card className="b" >
+
+    //       </Card>
+    //       </div>
+    //     </div>
+    // )(
                       
 
 
 
 
-    )
     
-
-
-
-
+    
 
 
 

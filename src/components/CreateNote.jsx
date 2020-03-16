@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
-import { Card, InputBase } from '@material-ui/core';
+import {
+  Tooltip,
+  Card,
+  InputBase,
+  Button,
+} from "@material-ui/core";
+//import { Card, InputBase } from '@material-ui/core';
 import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
-
+import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
 
 class CreateNote extends Component {
   constructor(props){
@@ -50,6 +56,11 @@ class CreateNote extends Component {
         <div>
           <AddAlertOutlinedIcon />
           </div>
+          <div>
+            <Tooltip title="Collbrate">
+                <PersonAddOutlinedIcon/>
+              </Tooltip>
+            </div>
           
         </div>
       </div>

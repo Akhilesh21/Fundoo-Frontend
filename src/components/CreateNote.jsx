@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Card } from '@material-ui/core';
 
 
 class CreateNote extends Component {
@@ -20,10 +21,45 @@ class CreateNote extends Component {
 
   render() {
     return (
-      <div>
-        
+      <div className="a_card">
+        <Card className= "b_card">
+              
+                <div className="c_card">
+                  <div>
+                    </div>
+                </div>
+        </Card>
       </div>
+    )(
+      <div>
+        <div className="a">
+          <Card className="b" >
+
+          </Card>
+          </div>
+        </div>
+    )(
+                      
+
+
+
+
     )
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
   }
 }
 

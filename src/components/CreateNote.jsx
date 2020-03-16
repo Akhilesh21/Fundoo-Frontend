@@ -229,7 +229,7 @@ class Note extends Component {
   render() {
     return !this.state.cardOpen ? (
       <div className="a" onClick={this.handleOpen}>
-        <Card className="create" style={{ boxShadow: "0px 0px 5px 1px" }}>
+        <Card className="b" style={{ boxShadow: "0px 0px 5px 1px" }}>
           <div className="create1">
             <div>
               <InputBase placeholder="Take a note..." />

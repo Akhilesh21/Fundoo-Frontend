@@ -170,7 +170,7 @@ import ArchiveOutlinedIcon from "@material-ui/icons/ArchiveOutlined";
 import UndoTwoToneIcon from "@material-ui/icons/UndoTwoTone";
 import RedoTwoToneIcon from "@material-ui/icons/RedoTwoTone";
 import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
-//import './Note.css'
+import './Note.css'
 
 //import SvgPin from "../icons/svgPin";
 //import SvgPinned from "../icons/svgUnpin";
@@ -327,4 +327,4 @@ class Note extends Component {
     );
   }
 }
-export default Note;
+export default Note;  

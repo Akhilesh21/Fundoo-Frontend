@@ -13,6 +13,11 @@ class CreateNote extends Component {
       isPinned:false
     };
   }
+
+  openCard = () => {
+       this.setState({cardOpen:true});
+  };
+
   render() {
     return (
       <div>

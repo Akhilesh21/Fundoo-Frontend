@@ -13,6 +13,7 @@ import SideNavBar from './components/sideBar'
 import CreateNote from './components/CreateNote'
 import NoteMenu from './components/NoteMenu'
 
+
 // import "./App.css";
 
 
@@ -39,6 +40,7 @@ class App  extends React.Component{
         <Route path="/sideBar" component={SideNavBar}/>
         <Route path="/notemenu" component={NoteMenu}/>
         <Route path="/CreateNote" component={CreateNote}/>
+        
 
 
  

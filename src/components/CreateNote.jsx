@@ -12,6 +12,8 @@ import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import ImageOutlinedIcon from "@material-ui/icons/ImageOutlined";
 import UndoTwoToneIcon from "@material-ui/icons/UndoTwoTone";
 import RedoTwoToneIcon from '@material-ui/icons/RedoTwoTone';
+// import SvgPin from "../icons/svgPin";
+// import SvgPinned from "../icons/svgUnpin";
 
 class CreateNote extends Component {
   constructor(props) {
@@ -22,7 +24,8 @@ class CreateNote extends Component {
       title: "",
       description: "",
       color: "",
-      isPinned: false
+      isPinned: false,
+      open:false
     };
   }
 
@@ -32,13 +35,31 @@ class CreateNote extends Component {
   changeTilte = e => {
     this.setState({ title: e.currentTarget.value })
   };
-
+  handleOpen = () => {
+    this.setState({
+      open:true
+    })
+  }
+  handleOpenn = () => {
+    this.setState({
+      open:false
+    })
+  }
   render() {
-    return (
+    return (!(this.state.open) ? (<div onClick={this.handleOpen}> hai</div>) : (
+      
       <div>
         <div className="card_open">
-
-        </div>
+        <Card className="card1" style={{ backgroundColor: this.props.color }}>
+          {/* {!this.state.isPinned ? (
+            <div className="unpin" onClick={this.handleOpenPin}>
+              <SvgPin />
+            </div>
+          ) : (
+            <div className="pin" alt="pin" onClick={this.handleClosePin}>
+            <SvgPinned />
+          </div>
+        )} */}
         <div>
           <InputBase
             multiline
@@ -90,9 +111,16 @@ class CreateNote extends Component {
           <RedoTwoToneIcon />
           </Tooltip>
           </div>
-      </div>
+          <div>
+            <Button color="primary" onClick={this.handleOpenn} >
+              Close
+              </Button>
+            </div>
+      
+       </Card>
 
-
+       </div>
+      </div> )
     );
   }
 }

@@ -25,6 +25,10 @@ class CreateNote extends Component {
   render() {
     return (
       <div>
+        <div className="card_open">
+          
+        </div>
+      <div>
       <InputBase
       multiline 
       placeholder="Title"
@@ -34,15 +38,18 @@ class CreateNote extends Component {
       </div>
       <div>
         <InputBase
-      multiline 
+        multiline 
       placeholder="take a noteeeeeeeeee.."
       onChange={this.changeDescription}
       value={this.state.description}
       />  
       </div>
+      </div>
 
 
-    )
+    );
+  }
+}
     
     
     
@@ -84,7 +91,6 @@ class CreateNote extends Component {
 
 
     
-  }
-}
+
 
 export default CreateNote

@@ -121,7 +121,6 @@ class Login extends Component {
                     console.log("RESPONSE :", response.data);
                     // let token=response.data.token
                     localStorage.setItem('usertoken',response.data.token)
-                    console.log("tgfvt",localStorage.getItem('usertoken'))
                 } else {
                     console.log("qwerty")
                 }

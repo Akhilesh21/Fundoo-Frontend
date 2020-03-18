@@ -129,7 +129,7 @@ class Note extends Component {
                           </div>
                       ):(
                         <div className="pin-out" onClick={this.handleClosePin}>
-                          {/* <img className="pin-out" src={image} onClick={() => this.changehandleisPinned(keys)} /> */}
+                          <img className="pin-out" src={image} onClick={() => this.changehandleisPinned(keys)} />
                           </div>
                      )}
                   

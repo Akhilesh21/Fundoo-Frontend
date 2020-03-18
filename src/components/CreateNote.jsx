@@ -125,7 +125,7 @@ class Note extends Component {
                     <div>
                       {!this.state.isPinned ?(
                         <div className="pin-over" onClick={this.handleOpenPin}>
-                            {/* <img className="pin-over" src={image} onClick={() => this.changehandleisPinned(keys)} /> */}
+                            <img className="pin-over" src={image} onClick={() => this.changehandleisPinned(keys)} />
                           </div>
                       ):(
                         <div className="pin-out" onClick={this.handleClosePin}>

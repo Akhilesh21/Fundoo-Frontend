@@ -12,6 +12,7 @@ import PrimarySearchAppBar from './components/AppBar'
 import SideNavBar from './components/sideBar'
 import Note from './components/CreateNote'
 import Notes from './components/test'
+import ColorComponent from './components/colorNote'
 
 
 
@@ -42,6 +43,7 @@ class App  extends React.Component{
       
         <Route path="/CreateNote" component={Note}/>
         <Route path="/test" component={Notes}/>
+        <Route path="/color" component={ColorComponent}/>
         
 
 

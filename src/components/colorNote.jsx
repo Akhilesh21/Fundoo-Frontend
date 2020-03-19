@@ -2,18 +2,18 @@ import React, { Component } from 'react'
 import { Tooltip, IconButton, Popper, Paper, ClickAwayListener, } from '@material-ui/core'
 import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
 import { withRouter } from 'react-router-dom';
-const colorPalette = [{ name: "default", colorCode: "#FDFEFE" },
+const colorPalette = [{ name: "Default", colorCode: "#FDFEFE" },
 { name: "Red", colorCode: "#f28b82" },
-{ name: "orange", colorCode: "#fbbc04" },
-{ name: "yellow", colorCode: "#fff475" },
+{ name: "Orange", colorCode: "#fbbc04" },
+{ name: "Yellow", colorCode: "#fff475" },
 { name: "Green", colorCode: "#ccff90" },
 { name: "Teal", colorCode: "#a7ffeb" },
-{ name: "blue", colorCode: "#cbf0f8" },
-{ name: "dark-blue", colorCode: "#aecbfa" },
-{ name: "purple", colorCode: "#d7aefb" },
+{ name: "Blue", colorCode: "#cbf0f8" },
+{ name: "Dark-blue", colorCode: "#aecbfa" },
+{ name: "Purple", colorCode: "#d7aefb" },
 { name: "Pink", colorCode: "#f48fb1" },
 { name: "Brown", colorCode: "#e6c9a8" },
-{ name: "Brown", colorCode: "#bcaaa4" },
+{ name: "Gray", colorCode: "#e8eaed" },
 ]
 class ColorComponent extends Component {
     constructor(props) {

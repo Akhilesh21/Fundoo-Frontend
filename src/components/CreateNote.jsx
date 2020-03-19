@@ -13,6 +13,7 @@ import RedoTwoToneIcon from "@material-ui/icons/RedoTwoTone";
 import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
 import { create } from '../Controller/UserController'
 import image from '../assets/pin.png'
+import ColorComponent from "./colorNote";
 import './Note.css'
 import { keys } from "@material-ui/core/styles/createBreakpoints";
 import unPin from "../assets/unpin.svg";
@@ -28,9 +29,9 @@ class Note extends Component {
       title: "",
       description: "",
       isPinned: false,
-      isDeleted:false,
-      archieve:false,
-      remainder:null,
+      isDeleted: false,
+      archieve: false,
+      remainder: null,
     };
   }
   openCard = () => {
@@ -47,16 +48,24 @@ class Note extends Component {
       cardOpen: true
     });
   };
-  handleOpenPin= noteId =>{
-    this.setState({ isPinned: true});
+  handleOpenPin = noteId => {
+    this.setState({ isPinned: true });
     let date = {
-      noteId:noteId,
-      isPinned:this.state.isPinned
+      noteId: noteId,
+      isPinned: this.state.isPinned
     };
   };
   handleClosePin = () => {
     this.setState({ isPinned: false });
   };
+  handleColorClose = () => {
+    this.setState({ color: true });
+  };
+
+  colorChange = () => {
+    this.setState();
+  };
+
 
   newNote = () => {
     // try {
@@ -87,26 +96,33 @@ class Note extends Component {
           console.log(err);
 
         })
-        this.setState({ cardOpen: false });
+      this.setState({ cardOpen: false });
     }
   }
+
   render() {
     return !this.state.cardOpen ? (
       <div className="new_card" onClick={this.handleOpen}>
-        <Card className="create" style={{ boxShadow: "0px 0px 3px 1px" ,opacity:"0.9" }}>
+        <Card className="create" style={{ boxShadow: "0px 0px 3px 1px", opacity: "0.9" }}>
           <div className="create1">
             <div>
               <InputBase placeholder="Take a note..." />
             </div>
             <div className="create_icon">
               <div>
+              <Tooltip title="New list">
                 <CheckBoxOutlinedIcon />
+                </Tooltip>
               </div>
               <div>
+              <Tooltip title="New note with drawing">
                 <ImageOutlinedIcon />
+                </Tooltip>
               </div>
               <div>
+              <Tooltip title="New note with image">
                 <CreateOutlinedIcon />
+                </Tooltip>
               </div>
             </div>
           </div>
@@ -115,7 +131,7 @@ class Note extends Component {
     ) : (
         <div>
           <div className="card_open" >
-            <Card className="card1" style={{ backgroundColor: this.props.color, boxShadow: "0px 0px 3px 1px" ,opacity:"0.9"}} >
+            <Card className="card1" style={{ backgroundColor: this.props.color, boxShadow: "0px 0px 3px 1px", opacity: "0.9" }} >
               <div>
 
                 <div className="pin-btnv">
@@ -126,20 +142,20 @@ class Note extends Component {
                       onChange={this.changeTitle}
                       value={this.state.title}
                     />
-                    </div>
-                    <div>
-                      {!this.state.isPinned ?(
-                        <div className="pin-over" onClick={this.handleOpenPin}>
-                            <img className="pin-over" src={pin}/>
-                          </div>
-                      ):(
+                  </div>
+                  <div>
+                    {!this.state.isPinned ? (
+                      <div className="pin-over" onClick={this.handleOpenPin}>
+                        <img className="pin-over" src={pin} />
+                      </div>
+                    ) : (
                         <div className="pin-out" onClick={this.handleClosePin}>
                           <img className="pin-out" src={unPin} />
-                          </div>
-                     )}
-                  
+                        </div>
+                      )}
+
                   </div>
-                 </div>
+                </div>
 
 
               </div>
@@ -162,6 +178,9 @@ class Note extends Component {
                   <Tooltip title="Collbrate">
                     <PersonAddOutlinedIcon />
                   </Tooltip>
+                </div>
+                <div>
+                  <ColorComponent paletteProps={this.paletteProps} />
                 </div>
 
                 <div>

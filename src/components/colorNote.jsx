@@ -12,7 +12,7 @@ const colorPalette = [{ name: "default", colorCode: "#FDFEFE" },
 { name: "dark-blue", colorCode: "#aecbfa" },
 { name: "purple", colorCode: "#d7aefb" },
 { name: "Pink", colorCode: "#f48fb1" },
-{ name: "gray", colorCode: "#eeeeee" },
+{ name: "Brown", colorCode: "#e6c9a8" },
 { name: "Brown", colorCode: "#bcaaa4" },
 ]
 class ColorComponent extends Component {

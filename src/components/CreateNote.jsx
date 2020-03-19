@@ -27,7 +27,10 @@ class Note extends Component {
       color: "",
       title: "",
       description: "",
-      isPinned: false
+      isPinned: false,
+      isDeleted:false,
+      archieve:false,
+      remainder:null,
     };
   }
   openCard = () => {

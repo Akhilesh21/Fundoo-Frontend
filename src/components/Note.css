@@ -50,18 +50,18 @@
 }
 
 .pin-over {
-  height: 2em;
-  width: 2em;
-  /* justify-content: space-between; */
+  height: 1.6em;
+  width: 1.6em;
+  opacity: 0.8;  /* justify-content: space-between; */
   /* display: flex; */
   /* padding-left:  900px; */
   /* margin-top: ; */
 
   /* width: 30em; */
 }
-
+ 
 .pin-btnv {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
+} 

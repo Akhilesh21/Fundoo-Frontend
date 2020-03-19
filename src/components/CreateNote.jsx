@@ -15,6 +15,8 @@ import { create } from '../Controller/UserController'
 import image from '../assets/pin.png'
 import './Note.css'
 import { keys } from "@material-ui/core/styles/createBreakpoints";
+import unPin from "../assets/unpin.svg";
+import pin from "../assets/pin.svg"
 
 class Note extends Component {
   constructor(props) {
@@ -88,7 +90,7 @@ class Note extends Component {
   render() {
     return !this.state.cardOpen ? (
       <div className="new_card" onClick={this.handleOpen}>
-        <Card className="create" style={{ boxShadow: "0px 0px 5px 1px" }}>
+        <Card className="create" style={{ boxShadow: "0px 0px 3px 1px" ,opacity:"0.9" }}>
           <div className="create1">
             <div>
               <InputBase placeholder="Take a note..." />
@@ -109,8 +111,8 @@ class Note extends Component {
       </div>
     ) : (
         <div>
-          <div className="card_open">
-            <Card className="card1" style={{ backgroundColor: this.props.color, boxShadow: "0px 0px 5px 1px" }} >
+          <div className="card_open" >
+            <Card className="card1" style={{ backgroundColor: this.props.color, boxShadow: "0px 0px 3px 1px" ,opacity:"0.9"}} >
               <div>
 
                 <div className="pin-btnv">
@@ -125,11 +127,11 @@ class Note extends Component {
                     <div>
                       {!this.state.isPinned ?(
                         <div className="pin-over" onClick={this.handleOpenPin}>
-                            <img className="pin-over" src={image} onClick={() => this.changehandleisPinned(keys)} />
+                            <img className="pin-over" src={pin}/>
                           </div>
                       ):(
                         <div className="pin-out" onClick={this.handleClosePin}>
-                          <img className="pin-out" src={image} onClick={() => this.changehandleisPinned(keys)} />
+                          <img className="pin-out" src={unPin} />
                           </div>
                      )}
                   

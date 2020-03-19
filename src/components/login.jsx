@@ -134,6 +134,9 @@ class Login extends Component {
 
     render() {
         const classes = { useStyles };
+        if(localStorage.getItem('token') !== null){
+            this.history.push("/dashboard");
+           }
 
         return (
          

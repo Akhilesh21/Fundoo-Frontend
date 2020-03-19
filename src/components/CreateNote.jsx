@@ -12,7 +12,7 @@ import UndoTwoToneIcon from "@material-ui/icons/UndoTwoTone";
 import RedoTwoToneIcon from "@material-ui/icons/RedoTwoTone";
 import AddAlertOutlinedIcon from '@material-ui/icons/AddAlertOutlined';
 import { create } from '../Controller/UserController'
-import image from '../assets/pin.png'
+//import image from '../assets/pin.png'
 import ColorComponent from "./colorNote";
 import './Note.css'
 import { keys } from "@material-ui/core/styles/createBreakpoints";
@@ -167,7 +167,10 @@ class Note extends Component {
                   value={this.state.description}
                 />
               </div>
-              <div></div>
+              <div>
+
+
+              </div>
               <div className="icons2">
                 <div>
                   <Tooltip title="remind me">

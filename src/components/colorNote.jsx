@@ -58,7 +58,7 @@ class ColorComponent extends Component {
         })
         return (
             <div className="colorpalette-div">
-                <Tooltip title="change color">
+                <Tooltip title="Change color">
                     <ClickAwayListener onClickAway={this.handleClickAway}>
                         <ColorLensOutlinedIcon onClick={(event) => this.handleClick(event)} cursor="pointer" />
                     </ClickAwayListener>
